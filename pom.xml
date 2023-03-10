@@ -10,16 +10,16 @@
     <version>1.0</version>
     <modules>
         <module>alva-education-ability</module>
-        <module>alva-education-business</module>
         <module>alva-education-commons</module>
         <module>alva-education-config</module>
+        <module>alva-education-business</module>
     </modules>
 
     <properties>
         <maven.compiler.source>8</maven.compiler.source>
         <maven.compiler.target>8</maven.compiler.target>
-        <spring-boot.version></spring-boot.version>
         <spring-boot.version>2.3.0.RELEASE</spring-boot.version>
+        <alva-education.version>1.0</alva-education.version>
     </properties>
 
     <!--管理依赖版本-->
@@ -32,8 +32,39 @@
                 <scope>import</scope>
                 <type>pom</type>
             </dependency>
+
+            <!--本项目模块依赖版本管理-->
+            <dependency>
+                <groupId>cn.alvasw</groupId>
+                <artifactId>alva-education-commons-core</artifactId>
+                <version>${alva-education.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>cn.alvasw</groupId>
+                <artifactId>alva-education-commons-web</artifactId>
+                <version>${alva-education.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>cn.alvasw</groupId>
+                <artifactId>alva-education-commons-base</artifactId>
+                <version>${alva-education.version}</version>
+            </dependency>
+
         </dependencies>
     </dependencyManagement>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter</artifactId>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.springframework.boot</groupId>
+                    <artifactId>spring-boot-starter-logging</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+    </dependencies>
 
     <!--管理插件-->
     <build>

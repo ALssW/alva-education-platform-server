@@ -10,7 +10,10 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>alva-education-business</artifactId>
-
+    <packaging>pom</packaging>
+    <modules>
+        <module>alva-education-business-demo</module>
+    </modules>
     <properties>
         <maven.compiler.source>8</maven.compiler.source>
         <maven.compiler.target>8</maven.compiler.target>

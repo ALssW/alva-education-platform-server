@@ -3,19 +3,13 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <parent>
-        <artifactId>alva-education-platform</artifactId>
+        <artifactId>alva-education-commons</artifactId>
         <groupId>cn.alvasw</groupId>
         <version>1.0</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>alva-education-commons</artifactId>
-    <packaging>pom</packaging>
-    <modules>
-        <module>alva-education-commons-base</module>
-        <module>alva-education-commons-web</module>
-        <module>alva-education-commons-core</module>
-    </modules>
+    <artifactId>alva-education-commons-core</artifactId>
 
     <properties>
         <maven.compiler.source>8</maven.compiler.source>
