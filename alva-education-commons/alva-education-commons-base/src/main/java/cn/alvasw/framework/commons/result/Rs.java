@@ -1,4 +1,4 @@
-package cn.alvasw.framework.commons.base.result;
+package cn.alvasw.framework.commons.result;
 
 import java.io.Serializable;
 
@@ -104,6 +104,7 @@ public class Rs<T> implements Serializable {
 	public static <T> Rs<T> fail(Integer code, String msg, T data) {
 		return new Rs<>(code, msg, data);
 	}
+
 	// unknown ---------------------------------
 
 	public static <T> Rs<T> unknown() {

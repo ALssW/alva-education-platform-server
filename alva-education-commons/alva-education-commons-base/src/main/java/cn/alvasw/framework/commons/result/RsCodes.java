@@ -1,4 +1,4 @@
-package cn.alvasw.framework.commons.base.result;
+package cn.alvasw.framework.commons.result;
 
 /**
  * @author ALsW

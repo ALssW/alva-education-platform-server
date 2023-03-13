@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>cn.alvasw</groupId>
-    <artifactId>alva-education-platform</artifactId>
+    <artifactId>alva-education-platform-server</artifactId>
     <packaging>pom</packaging>
     <version>1.0</version>
     <modules>
@@ -19,7 +19,14 @@
         <maven.compiler.source>8</maven.compiler.source>
         <maven.compiler.target>8</maven.compiler.target>
         <spring-boot.version>2.3.0.RELEASE</spring-boot.version>
+        <disruptor.version>3.4.2</disruptor.version>
+        <log4j2.version>2.15.0</log4j2.version>
         <alva-education.version>1.0</alva-education.version>
+        <mybatis-spring-boot-starter.version>2.2.0</mybatis-spring-boot-starter.version>
+        <mysql-connector-java.version>5.1.49</mysql-connector-java.version>
+        <druid-spring-boot-starter.version>1.2.6</druid-spring-boot-starter.version>
+        <mybatis-plus-boot-starter.version>3.5.2</mybatis-plus-boot-starter.version>
+        <junit.version>4.13.2</junit.version>
     </properties>
 
     <!--管理依赖版本-->
@@ -31,6 +38,51 @@
                 <version>${spring-boot.version}</version>
                 <scope>import</scope>
                 <type>pom</type>
+            </dependency>
+
+            <dependency>
+                <groupId>junit</groupId>
+                <artifactId>junit</artifactId>
+                <version>${junit.version}</version>
+            </dependency>
+
+            <!--日志异步输出-->
+            <dependency>
+                <groupId>com.lmax</groupId>
+                <artifactId>disruptor</artifactId>
+                <version>${disruptor.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.logging.log4j</groupId>
+                <artifactId>log4j-core</artifactId>
+                <version>${log4j2.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.logging.log4j</groupId>
+                <artifactId>log4j-api</artifactId>
+                <version>${log4j2.version}</version>
+            </dependency>
+
+            <!--MyBatis 相关依赖-->
+            <dependency>
+                <groupId>org.mybatis.spring.boot</groupId>
+                <artifactId>mybatis-spring-boot-starter</artifactId>
+                <version>${mybatis-spring-boot-starter.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.baomidou</groupId>
+                <artifactId>mybatis-plus-boot-starter</artifactId>
+                <version>${mybatis-plus-boot-starter.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>mysql</groupId>
+                <artifactId>mysql-connector-java</artifactId>
+                <version>${mysql-connector-java.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>druid-spring-boot-starter</artifactId>
+                <version>${druid-spring-boot-starter.version}</version>
             </dependency>
 
             <!--本项目模块依赖版本管理-->
@@ -47,6 +99,16 @@
             <dependency>
                 <groupId>cn.alvasw</groupId>
                 <artifactId>alva-education-commons-base</artifactId>
+                <version>${alva-education.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>cn.alvasw</groupId>
+                <artifactId>alva-education-config</artifactId>
+                <version>${alva-education.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>cn.alvasw</groupId>
+                <artifactId>alva-education-commons-entity</artifactId>
                 <version>${alva-education.version}</version>
             </dependency>
 

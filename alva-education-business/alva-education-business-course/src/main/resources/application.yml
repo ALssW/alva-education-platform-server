@@ -1,0 +1,5 @@
+spring:
+  application:
+    name: business-course
+  profiles:
+    active: dev

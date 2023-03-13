@@ -9,13 +9,41 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>alva-education-business-demo</artifactId>
+    <artifactId>alva-education-business-course</artifactId>
 
     <properties>
         <maven.compiler.source>8</maven.compiler.source>
         <maven.compiler.target>8</maven.compiler.target>
     </properties>
+
     <dependencies>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+        </dependency>
+
+        <!--easyExcel-->
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>easyexcel</artifactId>
+            <version>3.2.1</version>
+        </dependency>
+
+        <!--MyBatis-->
+        <dependency>
+            <groupId>com.baomidou</groupId>
+            <artifactId>mybatis-plus-boot-starter</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>druid-spring-boot-starter</artifactId>
+        </dependency>
+
+        <!--本体依赖-->
         <dependency>
             <groupId>cn.alvasw</groupId>
             <artifactId>alva-education-commons-web</artifactId>
@@ -31,11 +59,6 @@
         <dependency>
             <groupId>cn.alvasw</groupId>
             <artifactId>alva-education-commons-entity</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>com.alibaba</groupId>
-            <artifactId>easyexcel</artifactId>
-            <version>3.2.1</version>
         </dependency>
     </dependencies>
 

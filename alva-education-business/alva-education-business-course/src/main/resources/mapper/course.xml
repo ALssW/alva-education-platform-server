@@ -1,0 +1,25 @@
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="cn.alvasw.edu.dao.ICourseDao">
+
+    <sql id="BaseSql">
+        `id`, `name`, `start_time`
+    </sql>
+
+
+    <resultMap id="BaseMap" type="cn.alvasw.edu.entity.Course">
+        <id column="id" property="id"/>
+        <result column="name" property="name"/>
+        <result column="start_time" property="startTime"/>
+    </resultMap>
+
+    <insert id="insertBatchesFromFile">
+        insert into course values
+        <foreach collection="courseList" item="c" separator=",">
+            (null, #{c.name}, #{c.startTime})
+        </foreach>
+    </insert>
+
+</mapper>

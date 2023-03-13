@@ -1,6 +1,6 @@
-package cn.alvasw.framework.commons.base.exception;
+package cn.alvasw.framework.commons.exception;
 
-import cn.alvasw.framework.commons.base.result.RsCodes;
+import cn.alvasw.framework.commons.result.RsCodes;
 
 /**
  * @author ALsW
