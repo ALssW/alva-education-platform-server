@@ -1,0 +1,15 @@
+server:
+  port: 80
+spring:
+  application:
+    name: server-gateway
+  profiles:
+    active: @runtime@
+  cloud:
+    nacos:
+      server-addr: @nacosServer@
+      #配置gateway的动态路由的文件
+      config:
+        extension-configs:
+          - data-id: gateway-routes.yaml
+            refresh: true

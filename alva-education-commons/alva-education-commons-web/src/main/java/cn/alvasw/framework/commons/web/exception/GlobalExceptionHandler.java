@@ -1,7 +1,7 @@
 package cn.alvasw.framework.commons.web.exception;
 
-import cn.alvasw.framework.commons.exception.ServiceException;
-import cn.alvasw.framework.commons.result.Rs;
+import cn.alvasw.framework.commons.base.exception.ServiceException;
+import cn.alvasw.framework.commons.base.result.Rs;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.ExceptionHandler;

@@ -1,0 +1,11 @@
+spring:
+  application:
+    name: business-demo
+  profiles:
+    active: @runtime@
+
+  #nacos
+  cloud:
+    nacos:
+      server-addr: @nacosServer@
+

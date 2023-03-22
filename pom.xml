@@ -2,151 +2,233 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-    <modelVersion>4.0.0</modelVersion>
+	<modelVersion>4.0.0</modelVersion>
 
-    <groupId>cn.alvasw</groupId>
-    <artifactId>alva-education-platform-server</artifactId>
-    <packaging>pom</packaging>
-    <version>1.0</version>
-    <modules>
-        <module>alva-education-ability</module>
-        <module>alva-education-commons</module>
-        <module>alva-education-config</module>
-        <module>alva-education-business</module>
-    </modules>
+	<groupId>cn.alvasw.edu</groupId>
+	<artifactId>alva-education-platform-server</artifactId>
+	<packaging>pom</packaging>
+	<version>1.0</version>
+	<modules>
+		<module>alva-education-ability</module>
+		<module>alva-education-business</module>
+		<module>alva-education-commons</module>
+		<module>alva-education-config</module>
+		<module>alva-education-data</module>
+	</modules>
 
-    <properties>
-        <maven.compiler.source>8</maven.compiler.source>
-        <maven.compiler.target>8</maven.compiler.target>
-        <spring-boot.version>2.3.0.RELEASE</spring-boot.version>
-        <disruptor.version>3.4.2</disruptor.version>
-        <log4j2.version>2.15.0</log4j2.version>
-        <alva-education.version>1.0</alva-education.version>
-        <mybatis-spring-boot-starter.version>2.2.0</mybatis-spring-boot-starter.version>
-        <mysql-connector-java.version>5.1.49</mysql-connector-java.version>
-        <druid-spring-boot-starter.version>1.2.6</druid-spring-boot-starter.version>
-        <mybatis-plus-boot-starter.version>3.5.2</mybatis-plus-boot-starter.version>
-        <junit.version>4.13.2</junit.version>
-    </properties>
+	<properties>
+		<maven.compiler.source>8</maven.compiler.source>
+		<maven.compiler.target>8</maven.compiler.target>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
-    <!--管理依赖版本-->
-    <dependencyManagement>
-        <dependencies>
-            <dependency>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-dependencies</artifactId>
-                <version>${spring-boot.version}</version>
-                <scope>import</scope>
-                <type>pom</type>
-            </dependency>
+		<spring-boot.version>2.2.2.RELEASE</spring-boot.version>
+		<spring-cloud.version>Hoxton.SR8</spring-cloud.version>
+		<spring-cloud-alibaba.version>2.2.5.RELEASE</spring-cloud-alibaba.version>
+		<seata-spring-boot-starter.version>1.4.2</seata-spring-boot-starter.version>
 
-            <dependency>
-                <groupId>junit</groupId>
-                <artifactId>junit</artifactId>
-                <version>${junit.version}</version>
-            </dependency>
+		<disruptor.version>3.4.2</disruptor.version>
+		<log4j2.version>2.15.0</log4j2.version>
+		<mybatis-plus.version>3.5.1</mybatis-plus.version>
+		<druid-spring-boot.version>1.1.21</druid-spring-boot.version>
 
-            <!--日志异步输出-->
-            <dependency>
-                <groupId>com.lmax</groupId>
-                <artifactId>disruptor</artifactId>
-                <version>${disruptor.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.apache.logging.log4j</groupId>
-                <artifactId>log4j-core</artifactId>
-                <version>${log4j2.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.apache.logging.log4j</groupId>
-                <artifactId>log4j-api</artifactId>
-                <version>${log4j2.version}</version>
-            </dependency>
+		<alva-education.version>1.0</alva-education.version>
+	</properties>
 
-            <!--MyBatis 相关依赖-->
-            <dependency>
-                <groupId>org.mybatis.spring.boot</groupId>
-                <artifactId>mybatis-spring-boot-starter</artifactId>
-                <version>${mybatis-spring-boot-starter.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.baomidou</groupId>
-                <artifactId>mybatis-plus-boot-starter</artifactId>
-                <version>${mybatis-plus-boot-starter.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>mysql</groupId>
-                <artifactId>mysql-connector-java</artifactId>
-                <version>${mysql-connector-java.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.alibaba</groupId>
-                <artifactId>druid-spring-boot-starter</artifactId>
-                <version>${druid-spring-boot-starter.version}</version>
-            </dependency>
+	<!-- 管理依赖的版本 -->
+	<dependencyManagement>
+		<dependencies>
+			<!-- 父工程 继承 SpringBoot的相关依赖 -->
+			<dependency>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-dependencies</artifactId>
+				<version>${spring-boot.version}</version>
+				<scope>import</scope>
+				<type>pom</type>
+			</dependency>
 
-            <!--本项目模块依赖版本管理-->
-            <dependency>
-                <groupId>cn.alvasw</groupId>
-                <artifactId>alva-education-commons-core</artifactId>
-                <version>${alva-education.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>cn.alvasw</groupId>
-                <artifactId>alva-education-commons-web</artifactId>
-                <version>${alva-education.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>cn.alvasw</groupId>
-                <artifactId>alva-education-commons-base</artifactId>
-                <version>${alva-education.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>cn.alvasw</groupId>
-                <artifactId>alva-education-config</artifactId>
-                <version>${alva-education.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>cn.alvasw</groupId>
-                <artifactId>alva-education-commons-entity</artifactId>
-                <version>${alva-education.version}</version>
-            </dependency>
+			<!-- 继承了SpringCloud Netflix -->
+			<dependency>
+				<groupId>org.springframework.cloud</groupId>
+				<artifactId>spring-cloud-dependencies</artifactId>
+				<version>${spring-cloud.version}</version>
+				<scope>import</scope>
+				<type>pom</type>
+			</dependency>
 
-        </dependencies>
-    </dependencyManagement>
+			<dependency>
+				<groupId>com.alibaba.cloud</groupId>
+				<artifactId>spring-cloud-alibaba-dependencies</artifactId>
+				<version>${spring-cloud-alibaba.version}</version>
+				<scope>import</scope>
+				<type>pom</type>
+			</dependency>
 
-    <dependencies>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter</artifactId>
-            <exclusions>
-                <exclusion>
-                    <groupId>org.springframework.boot</groupId>
-                    <artifactId>spring-boot-starter-logging</artifactId>
-                </exclusion>
-            </exclusions>
-        </dependency>
-    </dependencies>
+			<dependency>
+				<artifactId>seata-spring-boot-starter</artifactId>
+				<groupId>io.seata</groupId>
+				<version>${seata-spring-boot-starter.version}</version>
+			</dependency>
 
-    <!--管理插件-->
-    <build>
-        <!--统一管理打包插件-->
-        <pluginManagement>
-            <plugins>
-                <plugin>
-                    <groupId>org.springframework.boot</groupId>
-                    <artifactId>spring-boot-maven-plugin</artifactId>
-                    <version>2.3.0.RELEASE</version>
-                    <executions>
-                        <execution>
-                            <goals>
-                                <goal>repackage</goal>
-                            </goals>
-                        </execution>
-                    </executions>
-                </plugin>
-            </plugins>
-        </pluginManagement>
-    </build>
+			<dependency>
+				<groupId>com.lmax</groupId>
+				<artifactId>disruptor</artifactId>
+				<version>${disruptor.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>org.apache.logging.log4j</groupId>
+				<artifactId>log4j-core</artifactId>
+				<version>${log4j2.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>org.apache.logging.log4j</groupId>
+				<artifactId>log4j-api</artifactId>
+				<version>${log4j2.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>com.baomidou</groupId>
+				<artifactId>mybatis-plus-boot-starter</artifactId>
+				<version>${mybatis-plus.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>com.baomidou</groupId>
+				<artifactId>mybatis-plus-annotation</artifactId>
+				<version>${mybatis-plus.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>com.alibaba</groupId>
+				<artifactId>druid-spring-boot-starter</artifactId>
+				<version>${druid-spring-boot.version}</version>
+			</dependency>
+
+			<!--本项目模块依赖版本管理-->
+			<!-- commons -->
+			<dependency>
+				<groupId>cn.alvasw.edu</groupId>
+				<artifactId>alva-education-commons-core</artifactId>
+				<version>${alva-education.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>cn.alvasw.edu</groupId>
+				<artifactId>alva-education-commons-web</artifactId>
+				<version>${alva-education.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>cn.alvasw.edu</groupId>
+				<artifactId>alva-education-commons-base</artifactId>
+				<version>${alva-education.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>cn.alvasw.edu</groupId>
+				<artifactId>alva-education-commons-mybatis</artifactId>
+				<version>${alva-education.version}</version>
+			</dependency>
+
+			<!-- config -->
+			<dependency>
+				<groupId>cn.alvasw.edu</groupId>
+				<artifactId>alva-education-config</artifactId>
+				<version>${alva-education.version}</version>
+			</dependency>
+
+			<!-- data -->
+			<dependency>
+				<groupId>cn.alvasw.edu</groupId>
+				<artifactId>alva-education-data-demo</artifactId>
+				<version>${alva-education.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>cn.alvasw.edu</groupId>
+				<artifactId>alva-education-data-user</artifactId>
+				<version>${alva-education.version}</version>
+			</dependency>
+
+		</dependencies>
+	</dependencyManagement>
+
+	<dependencies>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter</artifactId>
+			<exclusions>
+				<exclusion>
+					<groupId>org.springframework.boot</groupId>
+					<artifactId>spring-boot-starter-logging</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+	</dependencies>
+
+	<profiles>
+		<profile>
+			<!-- 占位符的名称 -->
+			<id>dev</id>
+			<!-- 自定义占位符 -->
+			<properties>
+				<runtime>dev</runtime>
+				<nacosServer>server.alva-sw.cn:8848</nacosServer>
+			</properties>
+		</profile>
+		<profile>
+			<!-- 占位符的名称 -->
+			<id>test</id>
+			<!-- 自定义占位符 -->
+			<properties>
+				<runtime>test</runtime>
+				<nacosServer>43.139.58.207:8848</nacosServer>
+			</properties>
+		</profile>
+	</profiles>
+
+	<!--管理插件-->
+	<build>
+		<resources>
+			<resource>
+				<directory>src/main/resources</directory>
+				<includes>
+					<include>**/*.*</include>
+				</includes>
+			</resource>
+			<resource>
+				<directory>src/main/resources</directory>
+				<filtering>true</filtering>
+				<includes>
+					<include>**/*.yml</include>
+				</includes>
+			</resource>
+		</resources>
+		<!--统一管理打包插件-->
+		<pluginManagement>
+			<plugins>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-resources-plugin</artifactId>
+					<version>2.7</version>
+					<configuration>
+						<delimiters>
+							<delimiter>@</delimiter>
+						</delimiters>
+						<useDefaultDelimiters>false</useDefaultDelimiters>
+					</configuration>
+				</plugin>
+				<plugin>
+					<groupId>org.springframework.boot</groupId>
+					<artifactId>spring-boot-maven-plugin</artifactId>
+					<executions>
+						<execution>
+							<goals>
+								<goal>repackage</goal>
+							</goals>
+						</execution>
+					</executions>
+				</plugin>
+			</plugins>
+		</pluginManagement>
+	</build>
 
 </project>

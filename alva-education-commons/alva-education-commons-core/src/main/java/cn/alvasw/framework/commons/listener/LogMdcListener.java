@@ -7,7 +7,6 @@ import org.springframework.context.event.GenericApplicationListener;
 import org.springframework.core.Ordered;
 import org.springframework.core.ResolvableType;
 import org.springframework.core.env.ConfigurableEnvironment;
-import org.springframework.lang.NonNullApi;
 
 /**
  * @author ALsW
@@ -22,6 +21,7 @@ public class LogMdcListener implements GenericApplicationListener {
 	}
 
 	@Override
+	@SuppressWarnings("ALL")
 	public void onApplicationEvent(ApplicationEvent applicationEvent) {
 		System.out.println("配置 Log 文件名称");
 		ConfigurableEnvironment environment = ((ApplicationEnvironmentPreparedEvent) applicationEvent)
