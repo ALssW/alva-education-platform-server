@@ -20,13 +20,6 @@
 	    <dependency>
 		    <groupId>org.springframework.boot</groupId>
 		    <artifactId>spring-boot-starter-web</artifactId>
-		    <exclusions>
-			    <!-- 去掉Jackson依赖，用fastjson -->
-			    <exclusion>
-				    <groupId>org.springframework.boot</groupId>
-				    <artifactId>spring-boot-starter-json</artifactId>
-			    </exclusion>
-		    </exclusions>
 	    </dependency>
 
 	    <!-- 添加一个日志的门面对象 -->
@@ -53,11 +46,6 @@
 	    <dependency>
 		    <groupId>org.springframework.cloud</groupId>
 		    <artifactId>spring-cloud-starter-openfeign</artifactId>
-	    </dependency>
-
-	    <dependency>
-		    <groupId>com.alibaba</groupId>
-		    <artifactId>fastjson</artifactId>
 	    </dependency>
 
 	    <dependency>

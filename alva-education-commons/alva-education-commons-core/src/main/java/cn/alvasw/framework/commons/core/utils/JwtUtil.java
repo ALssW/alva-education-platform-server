@@ -1,13 +1,11 @@
-package cn.alvasw.framework.commons.utils;
+package cn.alvasw.framework.commons.core.utils;
 
+import cn.alvasw.framework.commons.core.exception.TokenExpireException;
 import io.jsonwebtoken.*;
-import io.jsonwebtoken.JwtBuilder;
-import io.jsonwebtoken.SignatureAlgorithm;
-import io.jsonwebtoken.Jwts;
 
-import java.util.Collections;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.Map;
 
 /**
@@ -19,7 +17,16 @@ public class JwtUtil {
 
 	private static final String SECRET_KEY = "what-are-you-fucking-thinking-about???";
 
-	private static final long TTL = 1000 * 60 * 60 * 2L;
+	/**
+	 * Auth Token 过期时间
+	 */
+	private static final long TTL              = 20000;
+	// private static final long TTL = 1000 * 60 * 60 * 2L;
+	/**
+	 * Auth Token 续签时效
+	 */
+	private static final long RENEW_TIME_LIMIT = 40000;
+	// private static final long RENEW_TIME_LIMIT = 1000 * 60 * 60 * 4L;
 
 	/**
 	 * 生成jwt令牌
@@ -46,23 +53,28 @@ public class JwtUtil {
 	 * 解析jwt令牌
 	 *
 	 * @param jwtToken JWT Token
-	 * @param key      从 JWT Token 中获取的值
 	 * @param ip       IP
+	 * @param key      从 JWT Token 中获取的值
 	 * @return value
 	 */
-	public static Object get(String jwtToken, String ip, String key) {
+	@SuppressWarnings("all")
+	public static Map getMap(String jwtToken, String ip, String key) {
 		try {
 			return Jwts.parser().setSigningKey(SECRET_KEY + ip)
-					.parseClaimsJws(jwtToken).getBody().get(key);
+					.parseClaimsJws(jwtToken).getBody().get(key, LinkedHashMap.class);
 		} catch (ExpiredJwtException e) {
-			//令牌超时
-			Claims claims = e.getClaims();
-			//补签
-			return null;
+			// Token 超时补签
+			Date expiration = e.getClaims().getExpiration();
+			Date now        = new Date();
+			if (now.getTime() - expiration.getTime() > RENEW_TIME_LIMIT) {
+				// 续签实效过期
+				return null;
+			}
+			// 可以续签，抛出异常通知
+			throw new TokenExpireException((Map<String, Object>) e.getClaims().get(key));
 		} catch (Exception e) {
 			return null;
 		}
 	}
-
 
 }

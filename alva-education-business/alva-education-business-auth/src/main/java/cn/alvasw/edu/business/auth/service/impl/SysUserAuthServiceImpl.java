@@ -6,10 +6,10 @@ import cn.alvasw.edu.business.user.feign.ISysUserFeign;
 import cn.alvasw.edu.data.auth.base.BaseUser;
 import cn.alvasw.edu.data.auth.vo.input.LoginParamVO;
 import cn.alvasw.edu.data.auth.vo.output.SysUserVO;
-import cn.alvasw.edu.data.user.entity.SysUser;
+import cn.alvasw.edu.data.user.vo.output.SysUserQueryVO;
 import cn.alvasw.framework.commons.base.result.Rs;
 import cn.alvasw.framework.commons.base.result.RsCodes;
-import cn.alvasw.framework.commons.utils.BeanUtil;
+import cn.alvasw.framework.commons.core.utils.BeanUtil;
 import com.alibaba.nacos.common.utils.StringUtils;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
@@ -38,11 +38,11 @@ public class SysUserAuthServiceImpl implements IAuthService {
 		}
 
 		// 获取用户信息
-		SysUser sysUser = Rs.isOk(sysUserFeign.find(paramVO.getAccount()));
+		SysUserQueryVO sysUser = Rs.isOk(sysUserFeign.find(paramVO.getAccount(), paramVO.getPassword()));
 		log.info("查询到的系统用户信息 -> [{}]", sysUser);
 
 		// 判断用户信息是否正确
-		if (sysUser == null || !sysUser.getPassword().equals(paramVO.getPassword())) {
+		if (sysUser == null) {
 			throw new AuthException(RsCodes.AUTH_ERROR, "账号或密码错误");
 		}
 

@@ -1,4 +1,4 @@
 org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
   cn.alvasw.framework.commons.core.BaseCoreConfiguration
 org.springframework.context.ApplicationListener=\
-  cn.alvasw.framework.commons.listener.LogMdcListener
+  cn.alvasw.framework.commons.core.listener.LogMdcListener

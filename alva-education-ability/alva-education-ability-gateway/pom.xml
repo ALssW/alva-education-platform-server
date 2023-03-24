@@ -38,10 +38,14 @@
 			<optional>true</optional>
 		</dependency>
 
-
 		<dependency>
 			<groupId>cn.alvasw.edu</groupId>
 			<artifactId>alva-education-data-auth</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>cn.alvasw.edu</groupId>
+			<artifactId>alva-education-data-user</artifactId>
 		</dependency>
 
 		<dependency>

@@ -18,7 +18,7 @@ create table `sys_user`
     update_time datetime           not null comment '修改时间',
     status      tinyint            not null comment '状态',
     del_flag    tinyint            not null comment '删除'
-) comment '系统用户表'
+) comment '系统用户表';
 
 # 创建默认超级用户
 insert into `sys_user`
@@ -38,4 +38,14 @@ create table course_type
     update_time datetime    not null comment '修改时间',
     status      tinyint     not null comment '状态',
     del_flag    tinyint     not null comment '删除'
-) comment '课程分类'
+) comment '课程分类';
+
+# 课程分类测试数据
+insert into course_type values
+(1, null, 'IT·互联网', 0, 1, null, now(), now(), 0, 0),
+(2, 1, '前沿技术', 0, 2, 1, now(), now(), 0, 0),
+(3, 1, 'Java开发', 0, 2, 1, now(), now(), 0, 0),
+(4, 3, 'Java零基础', 0, 3, '[1,3]', now(), now(), 0, 0),
+(5, null, '考试·考证', 0, 1, null, now(), now(), 0, 0),
+(6, 5, '考验', 0, 2, 5, now(), now(), 0, 0),
+(7, 5, '考公', 0, 2, 5, now(), now(), 0, 0);

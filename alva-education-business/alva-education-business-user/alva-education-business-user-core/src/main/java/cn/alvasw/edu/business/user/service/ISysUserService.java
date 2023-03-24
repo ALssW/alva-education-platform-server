@@ -10,9 +10,19 @@ import com.baomidou.mybatisplus.extension.service.IService;
  */
 public interface ISysUserService extends IService<SysUser> {
 	/**
-	 * 按用户名查询系统用户
-	 * @param account 用户名
+	 * 按账号查询系统用户
+	 *
+	 * @param account 账号
 	 * @return 系统用户
 	 */
 	SysUser getByAccount(String account);
+
+	/**
+	 * 按账号与密码查询系统用户
+	 *
+	 * @param account  账号
+	 * @param password 密码
+	 * @return 系统用户
+	 */
+	SysUser getByPass(String account, String password);
 }
