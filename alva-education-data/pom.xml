@@ -15,6 +15,7 @@
         <module>alva-education-data-demo</module>
 	    <module>alva-education-data-user</module>
 	    <module>alva-education-data-auth</module>
+	    <module>alva-education-data-course</module>
     </modules>
 
     <properties>
@@ -36,11 +37,6 @@
 	    <dependency>
 		    <groupId>com.baomidou</groupId>
 		    <artifactId>mybatis-plus-annotation</artifactId>
-	    </dependency>
-
-	    <dependency>
-		    <groupId>com.alibaba</groupId>
-		    <artifactId>fastjson</artifactId>
 	    </dependency>
 
 	    <dependency>

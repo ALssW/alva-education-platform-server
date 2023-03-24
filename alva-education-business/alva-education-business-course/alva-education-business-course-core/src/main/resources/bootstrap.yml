@@ -1,0 +1,12 @@
+server:
+  port: 8092
+
+spring:
+  application:
+    name: course-server
+
+  profiles:
+    active: @runtime@
+  cloud:
+    nacos:
+      server-addr: @nacosServer@

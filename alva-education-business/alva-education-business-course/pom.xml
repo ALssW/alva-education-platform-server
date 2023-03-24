@@ -10,6 +10,11 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<artifactId>alva-education-business-course</artifactId>
+	<packaging>pom</packaging>
+	<modules>
+		<module>alva-education-business-course-core</module>
+		<module>alva-education-business-course-feign</module>
+	</modules>
 
 	<properties>
 		<maven.compiler.source>8</maven.compiler.source>
@@ -17,11 +22,6 @@
 	</properties>
 
 	<dependencies>
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-test</artifactId>
-		</dependency>
-
 		<!--easyExcel-->
 		<dependency>
 			<groupId>com.alibaba</groupId>
@@ -44,6 +44,12 @@
 			<groupId>cn.alvasw.edu</groupId>
 			<artifactId>alva-education-commons-mybatis</artifactId>
 		</dependency>
+
+		<dependency>
+			<groupId>cn.alvasw.edu</groupId>
+			<artifactId>alva-education-data-course</artifactId>
+		</dependency>
+
 	</dependencies>
 
 </project>

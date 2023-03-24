@@ -1,9 +1,6 @@
 package cn.alvasw.edu.data.auth.constant;
 
 
-import com.alibaba.fastjson.annotation.JSONType;
-import com.alibaba.fastjson.serializer.SerializerFeature;
-
 import java.util.HashMap;
 import java.util.Map;
 
@@ -12,7 +9,6 @@ import java.util.Map;
  * @version 1.0.0
  * @date 2023-03-22
  */
-@JSONType(serializeEnumAsJavaBean = true, serialzeFeatures = SerializerFeature.WriteEnumUsingToString)
 public enum FromType {
 
 	/**

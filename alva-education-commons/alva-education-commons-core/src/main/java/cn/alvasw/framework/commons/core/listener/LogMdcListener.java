@@ -1,4 +1,4 @@
-package cn.alvasw.framework.commons.listener;
+package cn.alvasw.framework.commons.core.listener;
 
 import org.slf4j.MDC;
 import org.springframework.boot.context.event.ApplicationEnvironmentPreparedEvent;
