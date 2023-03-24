@@ -13,3 +13,5 @@ spring:
         extension-configs:
           - data-id: gateway-routes.yaml
             refresh: true
+          - data-id: gateway-list.yaml
+            refresh: true

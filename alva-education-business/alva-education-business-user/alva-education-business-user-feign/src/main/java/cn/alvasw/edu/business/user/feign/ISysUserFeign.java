@@ -1,6 +1,6 @@
 package cn.alvasw.edu.business.user.feign;
 
-import cn.alvasw.edu.data.user.entity.SysUser;
+import cn.alvasw.edu.data.user.vo.output.SysUserQueryVO;
 import cn.alvasw.framework.commons.base.result.Rs;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -21,6 +21,16 @@ public interface ISysUserFeign {
 	 * @return 查找结果
 	 */
 	@RequestMapping("/find/account")
-	Rs<SysUser> find(@RequestParam("account") String account);
+	Rs<SysUserQueryVO> find(@RequestParam("account") String account);
+
+	/**
+	 * 按账号与密码查询系统用户
+	 *
+	 * @param account  账号
+	 * @param password 密码
+	 * @return 系统用户
+	 */
+	@RequestMapping("/find/pass")
+	Rs<SysUserQueryVO> find(@RequestParam("account") String account, @RequestParam("password") String password);
 
 }

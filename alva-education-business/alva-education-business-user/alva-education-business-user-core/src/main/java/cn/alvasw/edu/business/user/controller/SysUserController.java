@@ -3,8 +3,11 @@ package cn.alvasw.edu.business.user.controller;
 import cn.alvasw.edu.business.user.service.ISysUserService;
 import cn.alvasw.edu.data.user.entity.SysUser;
 import cn.alvasw.edu.data.user.vo.input.SysUserCreateVO;
+import cn.alvasw.edu.data.user.vo.output.SysUserQueryVO;
 import cn.alvasw.framework.commons.base.result.Rs;
-import cn.alvasw.framework.commons.utils.BeanUtil;
+import cn.alvasw.framework.commons.core.utils.BeanUtil;
+import cn.alvasw.framework.commons.web.annotation.Auth;
+import cn.alvasw.framework.commons.web.utils.AuthUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -33,16 +36,22 @@ public class SysUserController {
 	 * 根据用户名查询系统用户
 	 */
 	@RequestMapping("/find/account")
-	public Rs<SysUser> find(@NotBlank String account) {
+	public Rs<SysUserQueryVO> find(@NotBlank(message = "账号不能为空") String account) {
 		log.info("[接收到查询系统用户请求] account -> [{}]", account);
-		return Rs.assertNull(sysUserService.getByAccount(account));
+		return Rs.assertNull(BeanUtil.copyInstance(sysUserService.getByAccount(account), SysUserQueryVO.class));
+	}
+
+	@RequestMapping("/find/pass")
+	public Rs<SysUserQueryVO> find(@NotBlank(message = "账号不能为空") String account, @NotBlank(message = "密码不能为空") String password) {
+		log.info("[接收到查询系统用户请求] account -> [{}], password -> [*******]", account);
+		return Rs.assertNull(BeanUtil.copyInstance(sysUserService.getByPass(account, password), SysUserQueryVO.class));
 	}
 
 	/**
 	 * 创建系统用户
 	 */
 	@RequestMapping("/create")
-	public Rs<SysUser> create(@Validated SysUserCreateVO sysUserVO) {
+	public Rs<Void> create(@Validated SysUserCreateVO sysUserVO) {
 		log.info("[接收到系统用户创建请求] sysUserVO -> [{}]", sysUserVO);
 		return Rs.assertBool(sysUserService.save(
 				BeanUtil.copyInstance(
@@ -50,9 +59,12 @@ public class SysUserController {
 						SysUser.class)));
 	}
 
-	@RequestMapping("/all")
-	public Rs<List<SysUser>> all() {
-		return Rs.assertEmpty(sysUserService.list());
+	@Auth
+	@RequestMapping("/list")
+	public Rs<List<SysUserQueryVO>> list() {
+		log.info("[接收到查询系统用户列表请求]");
+		System.out.println(AuthUtil.getUid());
+		return Rs.assertEmpty(BeanUtil.copyListInstance(sysUserService.list(), SysUserQueryVO.class));
 	}
 
 }

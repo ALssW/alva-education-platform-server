@@ -21,6 +21,11 @@ public class SysUserServiceImpl extends ServiceImpl<ISysUserDao, SysUser> implem
 	}
 
 	@Override
+	public SysUser getByPass(String account, String password) {
+		return this.query().eq("account", account).eq("password", password).one();
+	}
+
+	@Override
 	public boolean save(SysUser sysUser) {
 		if (this.getByAccount(sysUser.getAccount()) != null) {
 			throw new ServiceException(RsCodes.FAIL, "账号已存在");

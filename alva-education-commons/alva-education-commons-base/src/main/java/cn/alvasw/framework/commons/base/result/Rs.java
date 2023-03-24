@@ -1,6 +1,7 @@
 package cn.alvasw.framework.commons.base.result;
 
 import cn.alvasw.plugin.mybatis.entity.PageResult;
+import com.fasterxml.jackson.annotation.JsonInclude;
 
 import java.io.Serializable;
 import java.util.List;
@@ -10,6 +11,7 @@ import java.util.List;
  * @version 1.0.0
  * @date 2023-03-10
  */
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class Rs<T> extends PageResult implements Serializable {
 	private Integer code;
 	private String  msg;

@@ -1,7 +1,10 @@
-package cn.alvasw.framework.commons.utils;
+package cn.alvasw.framework.commons.core.utils;
 
 import org.springframework.beans.BeanInstantiationException;
 import org.springframework.beans.BeanUtils;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * 基于 Spring BeanUtils 自封装
@@ -25,4 +28,11 @@ public class BeanUtil extends BeanUtils {
 		}
 	}
 
+	public static <T> List<T> copyListInstance(List<?> sourceList, Class<T> targetCls) {
+		List<T> instanceList = new ArrayList<>(sourceList.size());
+		for (Object source : sourceList) {
+			instanceList.add(copyInstance(source, targetCls));
+		}
+		return instanceList;
+	}
 }

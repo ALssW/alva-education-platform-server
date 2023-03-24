@@ -29,20 +29,8 @@ public class GlobalExceptionHandler {
 
 	private final Logger log = LoggerFactory.getLogger(GlobalExceptionHandler.class);
 
-	@ExceptionHandler(Exception.class)
-	public Rs<Object> globalException(Exception e) {
-		log.error("发生未知异常", e);
-		return Rs.unknown("发生未知异常: " + e.getMessage());
-	}
-
 	@ExceptionHandler(SQLException.class)
 	public Rs<Object> sqlException(Exception e) {
-		log.error("throw SQL Exception, 请联系管理员", e);
-		return Rs.error(e.getMessage());
-	}
-
-	@ExceptionHandler(ArithmeticException.class)
-	public Rs<Object> arithmeticException(Exception e) {
 		log.error("throw SQL Exception, 请联系管理员", e);
 		return Rs.error(e.getMessage());
 	}
@@ -79,6 +67,12 @@ public class GlobalExceptionHandler {
 		}
 		log.warn("发生参数绑定异常", e);
 		return Rs.error(RsCodes.BIND_ERROR, tipMsg);
+	}
+
+	@ExceptionHandler(Exception.class)
+	public Rs<Object> globalException(Exception e) {
+		log.error("发生未知异常", e);
+		return Rs.unknown("发生未知异常: " + e.getMessage());
 	}
 
 }

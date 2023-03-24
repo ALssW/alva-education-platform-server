@@ -7,7 +7,7 @@ import cn.alvasw.edu.data.auth.constant.FromType;
 import cn.alvasw.edu.data.auth.vo.input.LoginParamVO;
 import cn.alvasw.framework.commons.base.result.Rs;
 import cn.alvasw.framework.commons.base.result.RsCodes;
-import cn.alvasw.framework.commons.utils.JwtUtil;
+import cn.alvasw.framework.commons.core.utils.JwtUtil;
 import cn.alvasw.framework.commons.web.utils.ApplicationUtil;
 import cn.alvasw.framework.commons.web.utils.NetworkUtil;
 import lombok.extern.slf4j.Slf4j;
