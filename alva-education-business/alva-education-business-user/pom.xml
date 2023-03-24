@@ -14,7 +14,6 @@
 	<modules>
 		<module>alva-education-business-user-core</module>
 		<module>alva-education-business-user-feign</module>
-		<module>alva-education-business-user-auth</module>
 	</modules>
 
 	<properties>
@@ -38,7 +37,10 @@
 			<artifactId>alva-education-commons-web</artifactId>
 		</dependency>
 
-
+		<dependency>
+			<groupId>cn.alvasw.edu</groupId>
+			<artifactId>alva-education-data-user</artifactId>
+		</dependency>
 	</dependencies>
 
 </project>

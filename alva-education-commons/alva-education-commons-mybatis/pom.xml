@@ -38,5 +38,10 @@
 			<artifactId>spring-cloud-starter-alibaba-seata</artifactId>
 		</dependency>
 
+		<dependency>
+			<groupId>cn.alvasw.plugin</groupId>
+			<artifactId>page-helper-boot-starter</artifactId>
+		</dependency>
+
 	</dependencies>
 </project>

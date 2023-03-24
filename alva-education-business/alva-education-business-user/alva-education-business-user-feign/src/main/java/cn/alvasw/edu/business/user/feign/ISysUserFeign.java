@@ -11,15 +11,16 @@ import org.springframework.web.bind.annotation.RequestParam;
  * @version 1.0.0
  * @date 2023-03-22
  */
-@FeignClient("biz-user")
+@FeignClient("user-server")
+@RequestMapping("/sys/user")
 public interface ISysUserFeign {
 
 	/**
-	 * 通过 username 查询 SysUser
-	 * @param username 用户名
+	 * 通过 account 查询 SysUser
+	 * @param account 用户名
 	 * @return 查找结果
 	 */
-	@RequestMapping("/find/username")
-	Rs<SysUser> findByUsername(@RequestParam("username") String username);
+	@RequestMapping("/find/account")
+	Rs<SysUser> find(@RequestParam("account") String account);
 
 }

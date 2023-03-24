@@ -21,7 +21,7 @@
 		<maven.compiler.target>8</maven.compiler.target>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
-		<spring-boot.version>2.2.2.RELEASE</spring-boot.version>
+		<spring-boot.version>2.2.5.RELEASE</spring-boot.version>
 		<spring-cloud.version>Hoxton.SR8</spring-cloud.version>
 		<spring-cloud-alibaba.version>2.2.5.RELEASE</spring-cloud-alibaba.version>
 		<seata-spring-boot-starter.version>1.4.2</seata-spring-boot-starter.version>
@@ -30,6 +30,10 @@
 		<log4j2.version>2.15.0</log4j2.version>
 		<mybatis-plus.version>3.5.1</mybatis-plus.version>
 		<druid-spring-boot.version>1.1.21</druid-spring-boot.version>
+
+		<jjwt.version>0.9.0</jjwt.version>
+		<web-pagehelper.version>1.0</web-pagehelper.version>
+		<fastjson.version>1.2.76</fastjson.version>
 
 		<alva-education.version>1.0</alva-education.version>
 	</properties>
@@ -105,7 +109,41 @@
 				<version>${druid-spring-boot.version}</version>
 			</dependency>
 
+			<!-- utils -->
+			<!-- jwt token -->
+			<dependency>
+				<groupId>io.jsonwebtoken</groupId>
+				<artifactId>jjwt</artifactId>
+				<version>${jjwt.version}</version>
+			</dependency>
+
+			<!-- page helper -->
+			<dependency>
+				<groupId>cn.alvasw.plugin</groupId>
+				<artifactId>page-helper-boot-starter</artifactId>
+				<version>${web-pagehelper.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>cn.alvasw.plugin</groupId>
+				<artifactId>page-helper-commons</artifactId>
+				<version>${web-pagehelper.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>com.alibaba</groupId>
+				<artifactId>fastjson</artifactId>
+				<version>${fastjson.version}</version>
+			</dependency>
+
 			<!--本项目模块依赖版本管理-->
+			<!-- business -->
+			<dependency>
+				<groupId>cn.alvasw.edu</groupId>
+				<artifactId>alva-education-business-user-feign</artifactId>
+				<version>${alva-education.version}</version>
+			</dependency>
+
 			<!-- commons -->
 			<dependency>
 				<groupId>cn.alvasw.edu</groupId>
@@ -145,6 +183,12 @@
 			<dependency>
 				<groupId>cn.alvasw.edu</groupId>
 				<artifactId>alva-education-data-user</artifactId>
+				<version>${alva-education.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>cn.alvasw.edu</groupId>
+				<artifactId>alva-education-data-auth</artifactId>
 				<version>${alva-education.version}</version>
 			</dependency>
 
