@@ -2,6 +2,7 @@ package cn.alvasw.framework.commons.base.entity;
 
 import com.baomidou.mybatisplus.annotation.FieldFill;
 import com.baomidou.mybatisplus.annotation.TableField;
+import lombok.Data;
 
 import java.sql.Timestamp;
 
@@ -11,6 +12,7 @@ import java.sql.Timestamp;
  * @version 1.0.0
  * @date 2023-03-15
  */
+@Data
 public class BaseEntity {
 
 	@TableField(fill = FieldFill.INSERT)
@@ -22,45 +24,4 @@ public class BaseEntity {
 	@TableField(fill = FieldFill.INSERT)
 	private Integer   delFlag;
 
-	public Timestamp getCreateTime() {
-		return createTime;
-	}
-
-	public void setCreateTime(Timestamp createTime) {
-		this.createTime = createTime;
-	}
-
-	public Timestamp getUpdateTime() {
-		return updateTime;
-	}
-
-	public void setUpdateTime(Timestamp updateTime) {
-		this.updateTime = updateTime;
-	}
-
-	public Integer getStatus() {
-		return status;
-	}
-
-	public void setStatus(Integer status) {
-		this.status = status;
-	}
-
-	public Integer getDelFlag() {
-		return delFlag;
-	}
-
-	public void setDelFlag(Integer delFlag) {
-		this.delFlag = delFlag;
-	}
-
-	@Override
-	public String toString() {
-		return "BaseEntity{" +
-				"createTime=" + createTime +
-				", updateTime=" + updateTime +
-				", status=" + status +
-				", delFlag=" + delFlag +
-				'}';
-	}
 }

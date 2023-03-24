@@ -3,7 +3,7 @@ server:
 
 spring:
   application:
-    name: biz-user
+    name: user-server
 
   profiles:
     active: @runtime@

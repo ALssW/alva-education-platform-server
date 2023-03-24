@@ -1,0 +1,11 @@
+server:
+  port: 8091
+
+spring:
+  application:
+    name: auth-server
+  profiles:
+    active: @runtime@
+  cloud:
+    nacos:
+      server-addr: @nacosServer@

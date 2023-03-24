@@ -1,14 +1,20 @@
 package cn.alvasw.framework.commons.web.config;
 
-import cn.alvasw.framework.commons.web.exception.GlobalExceptionHandler;
+import com.alibaba.fastjson.serializer.SerializerFeature;
+import com.alibaba.fastjson.support.config.FastJsonConfig;
+import com.alibaba.fastjson.support.spring.FastJsonHttpMessageConverter;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.cloud.openfeign.EnableFeignClients;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.web.cors.CorsConfiguration;
-import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
-import org.springframework.web.filter.CorsFilter;
+import org.springframework.http.MediaType;
+import org.springframework.http.converter.HttpMessageConverter;
 
-import java.util.Arrays;
-import java.util.Collections;
+import java.nio.charset.Charset;
+import java.nio.charset.StandardCharsets;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * @author ALsW
@@ -16,25 +22,38 @@ import java.util.Collections;
  * @date 2023-03-10
  */
 @Configuration
+@EnableFeignClients(basePackages = "cn.alvasw.**.feign")
+@ComponentScan("cn.alvasw.framework")
+@Slf4j
 public class BaseWebConfiguration {
 
 	@Bean
-	public GlobalExceptionHandler globalExceptionHandler() {
-		System.out.println("注册 GlobalExceptionHandler");
-		return new GlobalExceptionHandler();
-	}
+	public HttpMessageConverter configureMessageConverters() {
+		System.out.println("注册使用 Fastjson");
+		FastJsonHttpMessageConverter converter = new FastJsonHttpMessageConverter();
+		FastJsonConfig               config    = new FastJsonConfig();
+		config.setSerializerFeatures(
+				// 保留map空的字段
+				SerializerFeature.WriteMapNullValue,
+				// 将String类型的null转成""
+				SerializerFeature.WriteNullStringAsEmpty,
+				// 将Number类型的null转成0
+				SerializerFeature.WriteNullNumberAsZero,
+				// 将List类型的null转成[]
+				SerializerFeature.WriteNullListAsEmpty,
+				// 将Boolean类型的null转成false
+				SerializerFeature.WriteNullBooleanAsFalse,
+				SerializerFeature.WriteNullListAsEmpty,
+				// 避免循环引用
+				SerializerFeature.DisableCircularReferenceDetect);
 
-	@Bean
-	public CorsFilter corsFilter() {
-		System.out.println("注册 CorsFilter");
-		CorsConfiguration configuration = new CorsConfiguration();
-		configuration.setAllowedOrigins(Collections.singletonList("*"));
-		configuration.setAllowedMethods(Collections.singletonList("*"));
-		configuration.setAllowedHeaders(Collections.singletonList("*"));
-		configuration.setAllowCredentials(true);
-		UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
-		source.registerCorsConfiguration("/**", configuration);
-		return new CorsFilter(source);
+		converter.setFastJsonConfig(config);
+		converter.setDefaultCharset(StandardCharsets.UTF_8);
+		List<MediaType> mediaTypeList = new ArrayList<>();
+		// 解决中文乱码问题，相当于在Controller上的@RequestMapping中加了个属性produces = "application/json"
+		mediaTypeList.add(MediaType.APPLICATION_JSON);
+		converter.setSupportedMediaTypes(mediaTypeList);
+		return converter;
 	}
 
 }

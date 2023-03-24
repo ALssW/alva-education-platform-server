@@ -13,7 +13,9 @@ public enum RsCodes {
 	FAIL(300, "失败"),
 	NOT_FOUND(404, "未找到该资源"),
 	ERROR(500, "错误"),
-	UNKNOWN(501, "未知错误");
+	UNKNOWN(501, "未知错误"),
+	BIND_ERROR(502, "参数绑定错误"),
+	AUTH_ERROR(510, "验证错误");
 
 	/**
 	 * 代码

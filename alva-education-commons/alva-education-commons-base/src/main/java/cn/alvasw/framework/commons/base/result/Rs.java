@@ -1,5 +1,7 @@
 package cn.alvasw.framework.commons.base.result;
 
+import cn.alvasw.plugin.mybatis.entity.PageResult;
+
 import java.io.Serializable;
 import java.util.List;
 
@@ -8,13 +10,12 @@ import java.util.List;
  * @version 1.0.0
  * @date 2023-03-10
  */
-
-public class Rs<T> implements Serializable {
+public class Rs<T> extends PageResult implements Serializable {
 	private Integer code;
 	private String  msg;
 	private T       data;
 
-	public Rs() {
+	private Rs() {
 	}
 
 	public Rs(Integer code, String msg, T data) {
@@ -31,10 +32,12 @@ public class Rs<T> implements Serializable {
 		this.code = code;
 	}
 
+	@Override
 	public String getMsg() {
 		return msg;
 	}
 
+	@Override
 	public void setMsg(String msg) {
 		this.msg = msg;
 	}
@@ -45,6 +48,17 @@ public class Rs<T> implements Serializable {
 
 	public void setData(T data) {
 		this.data = data;
+	}
+
+	public static <T> T isOk(Rs<T> rs) {
+		if (RsCodes.OK.getCode().equals(rs.getCode()) && rs.getData() != null) {
+			return rs.getData();
+		}
+		return null;
+	}
+
+	public static <T> Rs<T> assertBool(boolean success) {
+		return assertBool(success, "操作成功", "操作失败");
 	}
 
 	public static <T> Rs<T> assertBool(boolean success, String okMsg, String failMsg) {
@@ -59,6 +73,10 @@ public class Rs<T> implements Serializable {
 		return obj != null ? Rs.ok(okMsg, obj) : Rs.fail(RsCodes.NOT_FOUND, failMsg);
 	}
 
+	public static <T> Rs<List<T>> assertEmpty(List<T> coll) {
+		return assertEmpty(coll, "查询成功", "查询失败");
+	}
+
 	public static <T> Rs<List<T>> assertEmpty(List<T> coll, String okMsg, String failMsg) {
 		return coll != null && !coll.isEmpty() ? Rs.ok(okMsg, coll) : Rs.fail(RsCodes.NOT_FOUND, failMsg);
 	}
@@ -70,15 +88,15 @@ public class Rs<T> implements Serializable {
 	}
 
 	public static <T> Rs<T> ok(String msg) {
-		return ok(RsCodes.FAIL, msg);
+		return ok(RsCodes.OK, msg);
 	}
 
 	public static <T> Rs<T> ok(T data) {
-		return ok(RsCodes.FAIL, data);
+		return ok(RsCodes.OK, data);
 	}
 
 	public static <T> Rs<T> ok(String msg, T data) {
-		return ok(RsCodes.FAIL, msg, data);
+		return ok(RsCodes.OK, msg, data);
 	}
 
 	public static <T> Rs<T> ok(RsCodes codes) {
