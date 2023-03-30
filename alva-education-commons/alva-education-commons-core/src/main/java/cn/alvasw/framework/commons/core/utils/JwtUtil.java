@@ -20,12 +20,12 @@ public class JwtUtil {
 	/**
 	 * Auth Token 过期时间
 	 */
-	private static final long TTL              = 20000;
+	private static final long TTL              = 1000 * 60 * 10L;
 	// private static final long TTL = 1000 * 60 * 60 * 2L;
 	/**
 	 * Auth Token 续签时效
 	 */
-	private static final long RENEW_TIME_LIMIT = 40000;
+	private static final long RENEW_TIME_LIMIT = 1000 * 60 * 20L;
 	// private static final long RENEW_TIME_LIMIT = 1000 * 60 * 60 * 4L;
 
 	/**
@@ -77,4 +77,13 @@ public class JwtUtil {
 		}
 	}
 
+	public static boolean check(String authToken, String ip) {
+		try {
+			Jwts.parser().setSigningKey(SECRET_KEY + ip)
+					.parseClaimsJws(authToken);
+			return true;
+		} catch (JwtException | IllegalArgumentException e) {
+			return false;
+		}
+	}
 }

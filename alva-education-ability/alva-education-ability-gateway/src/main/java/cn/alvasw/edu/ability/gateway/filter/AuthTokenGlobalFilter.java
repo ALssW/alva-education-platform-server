@@ -71,7 +71,7 @@ public class AuthTokenGlobalFilter implements GlobalFilter {
 			userMap = JwtUtil.getMap(authToken, ip, "user");
 			if (userMap == null) {
 				log.warn("Auth Token 为空或过期");
-				return ResponseUtil.response(exchange, Rs.error("Auth Token 为空或过期"));
+				return ResponseUtil.response(exchange, Rs.error(RsCodes.TOKEN_EXPIRE, "Auth Token 为空或过期"));
 			}
 			uid = String.valueOf(userMap.get("data").get("id"));
 		} catch (TokenExpireException expire) {

@@ -60,4 +60,12 @@ public class AuthController {
 
 		return Rs.ok("登录成功", JwtUtil.createJwt("user", userMap, ip));
 	}
+
+	@RequestMapping("/check")
+	public Rs<Void> check(String authToken, HttpServletRequest request) {
+		return Rs.assertBool(
+				JwtUtil.check(authToken, NetworkUtil.getIpAddr(request))
+				,"Token 验证成功", "Token 验证失败");
+	}
+
 }

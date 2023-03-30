@@ -1,6 +1,6 @@
 package cn.alvasw.edu.business.user.service.impl;
 
-import cn.alvasw.edu.business.user.dao.ISysUserDao;
+import cn.alvasw.edu.business.user.dao.SysUserDao;
 import cn.alvasw.edu.business.user.service.ISysUserService;
 import cn.alvasw.edu.data.user.entity.SysUser;
 import cn.alvasw.framework.commons.base.exception.ServiceException;
@@ -14,7 +14,7 @@ import org.springframework.stereotype.Service;
  * @date 2023-03-22
  */
 @Service
-public class SysUserServiceImpl extends ServiceImpl<ISysUserDao, SysUser> implements ISysUserService {
+public class SysUserServiceImpl extends ServiceImpl<SysUserDao, SysUser> implements ISysUserService {
 	@Override
 	public SysUser getByAccount(String account) {
 		return this.query().eq("account", account).one();

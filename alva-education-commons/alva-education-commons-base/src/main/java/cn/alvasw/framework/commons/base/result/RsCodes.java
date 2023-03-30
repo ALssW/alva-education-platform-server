@@ -16,7 +16,8 @@ public enum RsCodes {
 	UNKNOWN(501, "未知错误"),
 	BIND_ERROR(502, "参数绑定错误"),
 	AUTH_ERROR(600, "验证错误"),
-	TOKEN_RENEW(601, "Token 续签");
+	TOKEN_RENEW(601, "Token 续签"),
+	TOKEN_EXPIRE(602, "Token 过期");
 
 	/**
 	 * 代码

@@ -3,7 +3,7 @@ server:
 
 spring:
   application:
-    name: course-server
+    name: server-course
 
   profiles:
     active: @runtime@

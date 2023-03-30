@@ -2,7 +2,7 @@ server:
   port: 80
 spring:
   application:
-    name: server-gateway
+    name: service-gateway
   profiles:
     active: @runtime@
   cloud:

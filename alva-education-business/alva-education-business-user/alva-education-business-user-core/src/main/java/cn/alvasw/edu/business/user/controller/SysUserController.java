@@ -25,7 +25,7 @@ import java.util.List;
  * @date 2023-03-22
  */
 @RestController
-@RequestMapping("/sys/user")
+@RequestMapping("/user/sys")
 @Slf4j
 public class SysUserController {
 
