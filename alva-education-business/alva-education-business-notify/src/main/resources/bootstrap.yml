@@ -10,3 +10,9 @@ spring:
   cloud:
     nacos:
       server-addr: @nacosServer@
+  mail:
+    protocol: smtp
+    host: smtp.163.com
+    username: alsw2009248@163.com
+    password: DPTZXAHSKBGBPHQH
+    port: 25
