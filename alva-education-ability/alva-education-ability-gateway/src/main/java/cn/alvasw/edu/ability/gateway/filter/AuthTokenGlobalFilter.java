@@ -79,13 +79,14 @@ public class AuthTokenGlobalFilter implements GlobalFilter {
 			// 续签
 			log.info("[Auth Token 续签] Token Data -> [{}]", expire.getData());
 			return ResponseUtil.response(exchange, Rs.error(RsCodes.TOKEN_RENEW,
-					JwtUtil.createJwt("user", expire.getData(), ip)));
+					"Token 续签",JwtUtil.createJwt("user", expire.getData(), ip)));
 		} catch (Exception e) {
 			log.warn("Auth Token 解析异常", e);
 			throw new ServiceException(RsCodes.AUTH_ERROR, "Auth Token 解析异常");
 		}
 
 		HttpHeaders headers = new HttpHeaders();
+		headers.putAll(request.getHeaders());
 		headers.set("UID", uid);
 
 		//创建一个新的请求

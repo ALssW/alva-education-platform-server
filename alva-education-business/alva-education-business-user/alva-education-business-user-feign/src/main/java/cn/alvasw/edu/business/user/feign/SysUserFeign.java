@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RequestParam;
  */
 @FeignClient(value = "server-user", contextId= "tcr")
 @RequestMapping("/user/sys")
-public interface ISysUserFeign {
+public interface SysUserFeign {
 
 	/**
 	 * 通过 account 查询 SysUser

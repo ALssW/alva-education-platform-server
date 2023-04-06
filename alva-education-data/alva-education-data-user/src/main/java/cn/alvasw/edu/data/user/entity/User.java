@@ -11,19 +11,19 @@ import lombok.experimental.Accessors;
 /**
  * @author ALsW
  * @version 1.0.0
- * @date 2023-03-30
+ * @date 2023-04-01
  */
 @Data
 @EqualsAndHashCode(callSuper = true)
 @ToString(callSuper = true)
 @Accessors(chain = true)
-public class Teacher extends BaseEntity {
+public class User extends BaseEntity {
 
 	@TableId(type = IdType.ASSIGN_ID)
-	private Long    id;
-	private String  email;
-	private String  name;
-	private Integer age;
-	private String  info;
+	private Long id;
+	private String openid;
+	private String sessionKey;
+	private String avatar;
+	private String nickname;
 
 }

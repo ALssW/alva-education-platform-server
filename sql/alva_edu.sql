@@ -83,4 +83,19 @@ create table `course`
     update_time datetime       not null comment '修改时间',
     status      tinyint        not null comment '状态',
     del_flag    tinyint        not null comment '删除'
-) comment '课程'
+) comment '课程';
+
+# 普通用户
+drop table if exists `user`;
+create table `user`
+(
+    id           bigint primary key auto_increment comment '主键',
+    openid       varchar(100) unique not null comment '微信端openid',
+    session_key varchar(100)        not null comment '微信端session key',
+    avatar       text comment '头像',
+    nickname     varchar(20) comment '用户名称',
+    create_time  datetime            not null comment '创建时间',
+    update_time  datetime            not null comment '修改时间',
+    status       tinyint             not null comment '状态',
+    del_flag     tinyint             not null comment '删除'
+) comment '普通用户';

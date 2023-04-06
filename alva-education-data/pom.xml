@@ -16,6 +16,7 @@
 	    <module>alva-education-data-user</module>
 	    <module>alva-education-data-auth</module>
 	    <module>alva-education-data-course</module>
+	    <module>alva-education-data-notify</module>
     </modules>
 
     <properties>

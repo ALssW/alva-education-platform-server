@@ -10,3 +10,7 @@ spring:
   cloud:
     nacos:
       server-addr: @nacosServer@
+
+alvasw:
+  file:
+    path: D:\Other\Database\img

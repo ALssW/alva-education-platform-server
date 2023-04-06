@@ -25,7 +25,7 @@ import java.util.List;
 @TableName(autoResultMap = true)
 public class CourseType extends BaseEntity {
 
-	public static final int MIN_TYPE = 3;
+	public static final Integer MIN_TYPE = 3;
 
 	@TableId(type = IdType.ASSIGN_ID)
 	private Long       id;

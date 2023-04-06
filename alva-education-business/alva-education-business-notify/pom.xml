@@ -32,6 +32,11 @@
 			<artifactId>spring-boot-starter-mail</artifactId>
 		</dependency>
 
+		<dependency>
+			<groupId>cn.alvasw.edu</groupId>
+			<artifactId>alva-education-data-notify</artifactId>
+		</dependency>
+
 	</dependencies>
 
 </project>

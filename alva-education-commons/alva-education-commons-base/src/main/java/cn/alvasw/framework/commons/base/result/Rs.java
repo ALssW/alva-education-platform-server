@@ -76,11 +76,11 @@ public class Rs<T> extends PageResult implements Serializable {
 	}
 
 	public static <T> Rs<List<T>> assertEmpty(List<T> coll) {
-		return assertEmpty(coll, "查询成功", "查询失败");
+		return assertEmpty(coll, "查询成功", "暂无数据");
 	}
 
 	public static <T> Rs<List<T>> assertEmpty(List<T> coll, String okMsg, String failMsg) {
-		return coll != null && !coll.isEmpty() ? Rs.ok(okMsg, coll) : Rs.fail(RsCodes.NOT_FOUND, failMsg);
+		return coll != null && !coll.isEmpty() ? Rs.ok(okMsg, coll) : Rs.fail(RsCodes.FAIL, failMsg);
 	}
 
 	// ok ---------------------------------

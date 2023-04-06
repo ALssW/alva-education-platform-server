@@ -17,4 +17,8 @@ public interface ICourseTypeService extends IService<CourseType> {
 	 * @return 降序列表
 	 */
 	List<CourseType> listDesc();
+
+	boolean updateNums(Long id, int num);
+
+
 }

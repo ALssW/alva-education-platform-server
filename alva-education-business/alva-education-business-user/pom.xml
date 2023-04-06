@@ -41,6 +41,12 @@
 			<groupId>cn.alvasw.edu</groupId>
 			<artifactId>alva-education-data-user</artifactId>
 		</dependency>
+
+		<dependency>
+			<groupId>cn.alvasw.edu</groupId>
+			<artifactId>alva-education-data-notify</artifactId>
+		</dependency>
+
 	</dependencies>
 
 </project>

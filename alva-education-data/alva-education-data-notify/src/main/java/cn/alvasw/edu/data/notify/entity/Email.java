@@ -1,4 +1,4 @@
-package cn.alvasw.edu.business.notify.entity;
+package cn.alvasw.edu.data.notify.entity;
 
 import lombok.Data;
 import lombok.experimental.Accessors;

@@ -24,7 +24,7 @@ public class TeacherServiceImpl extends ServiceImpl<TeacherDao, Teacher> impleme
 			return teacher;
 		}
 
-		teacher = new Teacher().setEmail(email).setName("教师-" + Math.random() * 1000);
+		teacher = new Teacher().setEmail(email).setName("教师-" + Math.round(Math.random() * 1000));
 		log.debug("教师不存在，将创建教师 teacher -> [{}]", teacher);
 		return save(teacher) ? teacher : null;
 	}

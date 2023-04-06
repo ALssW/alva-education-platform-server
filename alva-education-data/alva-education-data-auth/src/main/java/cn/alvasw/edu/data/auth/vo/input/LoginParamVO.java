@@ -16,4 +16,7 @@ public class LoginParamVO {
 	private String email;
 	private String code;
 
+	private String avatar;
+	private String nickname;
+
 }

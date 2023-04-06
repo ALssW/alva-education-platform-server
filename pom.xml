@@ -137,7 +137,6 @@
 			</dependency>
 
 
-
 			<!--本项目模块依赖版本管理-->
 			<!-- business -->
 			<dependency>
@@ -194,6 +193,11 @@
 			<dependency>
 				<groupId>cn.alvasw.edu</groupId>
 				<artifactId>alva-education-data-course</artifactId>
+				<version>${alva-education.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>cn.alvasw.edu</groupId>
+				<artifactId>alva-education-data-notify</artifactId>
 				<version>${alva-education.version}</version>
 			</dependency>
 

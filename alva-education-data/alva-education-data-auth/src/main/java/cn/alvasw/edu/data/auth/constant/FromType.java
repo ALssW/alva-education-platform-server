@@ -20,13 +20,9 @@ public enum FromType {
 	 */
 	TEACHER(1, "tcr"),
 	/**
-	 * PC端 学生
-	 */
-	STUDENT(2, "stu"),
-	/**
 	 * 小程序端
 	 */
-	PE_MINI(3, "mini");
+	PE_MINI(2, "wx");
 
 	private static final Map<Integer, FromType> VALUE_MAP = new HashMap<>();
 

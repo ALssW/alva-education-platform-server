@@ -4,6 +4,7 @@ import cn.alvasw.edu.data.user.entity.Teacher;
 import cn.alvasw.framework.commons.base.result.Rs;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 /**
  * @author ALsW
@@ -11,8 +12,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
  * @date 2023-03-30
  */
 @FeignClient(value = "server-user", contextId = "sys")
-@RequestMapping("/user/teacher")
-public interface ITeacherFeign {
+@RequestMapping("/user/tcr")
+public interface TeacherFeign {
 
 
 	/**
@@ -23,5 +24,8 @@ public interface ITeacherFeign {
 	 * @return 教师
 	 */
 	@RequestMapping("/login")
-	Rs<Teacher> login(String email, String code);
+	Rs<Teacher> login(@RequestParam("email") String email, @RequestParam("code") String code);
+
+	@RequestMapping("/find")
+	Rs<Teacher> find(@RequestParam("id") Long id);
 }

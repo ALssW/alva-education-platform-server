@@ -2,7 +2,7 @@ package cn.alvasw.edu.business.auth.service.impl;
 
 import cn.alvasw.edu.business.auth.exception.AuthException;
 import cn.alvasw.edu.business.auth.service.IAuthService;
-import cn.alvasw.edu.business.user.feign.ISysUserFeign;
+import cn.alvasw.edu.business.user.feign.SysUserFeign;
 import cn.alvasw.edu.data.auth.base.BaseUser;
 import cn.alvasw.edu.data.auth.vo.input.LoginParamVO;
 import cn.alvasw.edu.data.auth.vo.output.SysUserVO;
@@ -26,7 +26,7 @@ import javax.annotation.Resource;
 public class SysUserAuthServiceImpl implements IAuthService {
 
 	@Resource
-	private ISysUserFeign sysUserFeign;
+	private SysUserFeign sysUserFeign;
 
 	@Override
 	public BaseUser authLogin(LoginParamVO paramVO) {

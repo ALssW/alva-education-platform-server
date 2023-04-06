@@ -6,10 +6,12 @@ import com.alibaba.fastjson.support.config.FastJsonConfig;
 import com.alibaba.fastjson.support.spring.FastJsonHttpMessageConverter;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.cloud.openfeign.EnableFeignClients;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.MediaType;
 import org.springframework.http.converter.HttpMessageConverter;
+import org.springframework.web.client.RestTemplate;
 
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
@@ -52,6 +54,11 @@ public class BaseWebConfiguration {
 		mediaTypeList.add(MediaType.APPLICATION_JSON);
 		converter.setSupportedMediaTypes(mediaTypeList);
 		return converter;
+	}
+
+	@Bean
+	public RestTemplate restClient(){
+		return new RestTemplate();
 	}
 
 }

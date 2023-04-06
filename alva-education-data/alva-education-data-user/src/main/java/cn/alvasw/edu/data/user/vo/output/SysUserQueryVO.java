@@ -8,6 +8,9 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.ToString;
 
+import java.sql.Timestamp;
+import java.time.LocalDateTime;
+
 /**
  * @author ALsW
  * @version 1.0.0
@@ -16,8 +19,9 @@ import lombok.ToString;
 @Data
 public class SysUserQueryVO {
 
-	private Long   id;
-	private String account;
-	private String name;
+	private Long      id;
+	private String    account;
+	private String    name;
+	private Timestamp createTime;
 
 }
