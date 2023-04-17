@@ -12,7 +12,6 @@ import cn.alvasw.framework.commons.base.result.RsCodes;
 import cn.alvasw.framework.commons.core.utils.BeanUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
-import org.springframework.web.client.RestTemplate;
 
 import javax.annotation.Resource;
 
@@ -34,7 +33,7 @@ public class TeacherAuthServiceImpl implements IAuthService {
 		if (Rs.isOk(teacherRs) == null) {
 			throw new AuthException(RsCodes.AUTH_ERROR, teacherRs.getMsg());
 		}
-
+		
 		return BeanUtil.copyInstance(teacherRs.getData(), TeacherVO.class);
 	}
 }

@@ -21,6 +21,12 @@
 			<groupId>cn.alvasw.edu</groupId>
 			<artifactId>alva-education-business-user-feign</artifactId>
 		</dependency>
+
+		<dependency>
+			<groupId>cn.alvasw.edu</groupId>
+			<artifactId>alva-education-commons-cache</artifactId>
+		</dependency>
+
 	</dependencies>
 
 </project>

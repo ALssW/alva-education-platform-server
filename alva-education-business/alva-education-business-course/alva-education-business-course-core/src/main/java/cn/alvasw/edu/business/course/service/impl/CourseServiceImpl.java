@@ -4,6 +4,7 @@ import cn.alvasw.edu.business.course.dao.CourseDao;
 import cn.alvasw.edu.business.course.service.ICourseService;
 import cn.alvasw.edu.business.course.service.ICourseTypeService;
 import cn.alvasw.edu.business.user.feign.TeacherFeign;
+import cn.alvasw.edu.commons.cache.lock.RLock;
 import cn.alvasw.edu.data.course.entity.Course;
 import cn.alvasw.edu.data.course.entity.CourseType;
 import cn.alvasw.edu.data.user.entity.Teacher;
@@ -60,6 +61,7 @@ public class CourseServiceImpl extends ServiceImpl<CourseDao, Course> implements
 	@Override
 	@Auth
 	public List<Course> listByTcrId() {
+
 		return query().eq("teacher_id", AuthUtil.getRemoveUid()).list();
 	}
 

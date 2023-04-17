@@ -30,10 +30,13 @@
 		<log4j2.version>2.15.0</log4j2.version>
 		<mybatis-plus.version>3.5.1</mybatis-plus.version>
 		<druid-spring-boot.version>1.1.21</druid-spring-boot.version>
+		<druid.version>1.1.21</druid.version>
 
 		<jjwt.version>0.9.0</jjwt.version>
 		<web-pagehelper.version>1.0</web-pagehelper.version>
 		<fastjson.version>1.2.76</fastjson.version>
+		<redisson.version>3.13.6</redisson.version>
+		<shardingsphere-jdbc.version>5.1.1</shardingsphere-jdbc.version>
 
 		<alva-education.version>1.0</alva-education.version>
 	</properties>
@@ -136,6 +139,26 @@
 				<version>${fastjson.version}</version>
 			</dependency>
 
+			<!-- redisson 分布式锁 -->
+			<dependency>
+				<groupId>org.redisson</groupId>
+				<artifactId>redisson-spring-boot-starter</artifactId>
+				<version>${redisson.version}</version>
+			</dependency>
+
+			<!-- sharding-jdbc 分库分表 -->
+			<dependency>
+				<groupId>org.apache.shardingsphere</groupId>
+				<artifactId>shardingsphere-jdbc-core-spring-boot-starter</artifactId>
+				<version>${shardingsphere-jdbc.version}</version>
+			</dependency>
+
+			<!-- druid连接池依赖 -->
+			<dependency>
+				<groupId>com.alibaba</groupId>
+				<artifactId>druid</artifactId>
+				<version>${druid.version}</version>
+			</dependency>
 
 			<!--本项目模块依赖版本管理-->
 			<!-- business -->
@@ -149,6 +172,11 @@
 			<dependency>
 				<groupId>cn.alvasw.edu</groupId>
 				<artifactId>alva-education-commons-core</artifactId>
+				<version>${alva-education.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>cn.alvasw.edu</groupId>
+				<artifactId>alva-education-commons-cache</artifactId>
 				<version>${alva-education.version}</version>
 			</dependency>
 			<dependency>
@@ -200,7 +228,11 @@
 				<artifactId>alva-education-data-notify</artifactId>
 				<version>${alva-education.version}</version>
 			</dependency>
-
+			<dependency>
+				<groupId>cn.alvasw.edu</groupId>
+				<artifactId>alva-education-data-activity</artifactId>
+				<version>${alva-education.version}</version>
+			</dependency>
 		</dependencies>
 	</dependencyManagement>
 

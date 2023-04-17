@@ -2,6 +2,8 @@ package cn.alvasw.framework.commons.base.result;
 
 import cn.alvasw.plugin.mybatis.entity.PageResult;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import org.jetbrains.annotations.Contract;
+import org.jetbrains.annotations.NotNull;
 
 import java.io.Serializable;
 import java.util.List;
@@ -155,7 +157,7 @@ public class Rs<T> extends PageResult implements Serializable {
 		return fail(codes.getCode(), msg, data);
 	}
 
-	public static <T> Rs<T> fail(Integer code, String msg, T data) {
+	public static <T> @NotNull Rs<T> fail(Integer code, String msg, T data) {
 		return new Rs<>(code, msg, data);
 	}
 

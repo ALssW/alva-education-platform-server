@@ -17,6 +17,7 @@
 	    <module>alva-education-data-auth</module>
 	    <module>alva-education-data-course</module>
 	    <module>alva-education-data-notify</module>
+	    <module>alva-education-data-activity</module>
     </modules>
 
     <properties>
@@ -30,10 +31,10 @@
 		    <artifactId>spring-boot-starter-validation</artifactId>
 	    </dependency>
 
-	    <dependency>
-		    <groupId>org.projectlombok</groupId>
-		    <artifactId>lombok</artifactId>
-	    </dependency>
+	    <!--<dependency>-->
+		<!--    <groupId>org.projectlombok</groupId>-->
+		<!--    <artifactId>lombok</artifactId>-->
+	    <!--</dependency>-->
 
 	    <dependency>
 		    <groupId>com.baomidou</groupId>

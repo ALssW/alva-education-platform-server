@@ -19,8 +19,10 @@ import javax.annotation.Resource;
 import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.http.HttpServletResponse;
 import java.io.*;
+import java.util.Collections;
 import java.util.List;
 import java.util.UUID;
+import java.util.concurrent.ConcurrentMap;
 
 /**
  * @author ALsW
@@ -46,7 +48,6 @@ public class CourseController {
 		if (!saveFile.exists()) {
 			saveFile.mkdirs();
 		}
-
 		String fileName = file.getOriginalFilename();
 		String fileType = fileName != null ? fileName.substring(fileName.lastIndexOf(".")) : ".png";
 		String filename = UUID.randomUUID() + fileType;

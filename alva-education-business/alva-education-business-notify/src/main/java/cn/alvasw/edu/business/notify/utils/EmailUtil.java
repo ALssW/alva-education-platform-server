@@ -1,7 +1,7 @@
 package cn.alvasw.edu.business.notify.utils;
 
 import cn.alvasw.edu.data.notify.entity.Email;
-import cn.alvasw.framework.commons.web.utils.ApplicationUtil;
+import cn.alvasw.framework.commons.core.utils.ApplicationUtil;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.MimeMessageHelper;
 

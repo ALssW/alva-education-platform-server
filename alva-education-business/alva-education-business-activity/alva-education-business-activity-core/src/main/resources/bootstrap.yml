@@ -1,0 +1,14 @@
+server:
+  port: 8093
+
+spring:
+  application:
+    name: server-activity
+
+  profiles:
+    active:
+     - @runtime@
+     - datasource
+  cloud:
+    nacos:
+      server-addr: @nacosServer@

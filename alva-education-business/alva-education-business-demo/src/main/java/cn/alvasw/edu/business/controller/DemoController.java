@@ -24,7 +24,6 @@ public class DemoController {
 		log.error("接收到请求");
 		log.debug("接收到请求");
 		log.trace("接收到请求");
-		// System.out.println(1 / 0);
 		return Rs.ok();
 	}
 

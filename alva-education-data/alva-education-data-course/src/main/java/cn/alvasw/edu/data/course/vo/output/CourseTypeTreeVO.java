@@ -1,5 +1,12 @@
 package cn.alvasw.edu.data.course.vo.output;
 
+import com.fasterxml.jackson.annotation.JsonAlias;
+import com.fasterxml.jackson.annotation.JsonFilter;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonRawValue;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.fasterxml.jackson.databind.ser.std.StringSerializer;
+import com.fasterxml.jackson.databind.ser.std.ToStringSerializer;
 import lombok.Data;
 import lombok.experimental.Accessors;
 
@@ -16,6 +23,7 @@ import java.util.List;
 @Accessors(chain = true)
 public class CourseTypeTreeVO implements Serializable {
 
+	@JsonSerialize(using = ToStringSerializer.class)
 	private Long                   id;
 	private Long                   pid;
 	private String                 label;

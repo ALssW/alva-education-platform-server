@@ -28,11 +28,6 @@
 		</dependency>
 
 		<dependency>
-			<groupId>org.projectlombok</groupId>
-			<artifactId>lombok</artifactId>
-		</dependency>
-
-		<dependency>
 			<groupId>com.baomidou</groupId>
 			<artifactId>mybatis-plus-annotation</artifactId>
 		</dependency>
@@ -41,6 +36,13 @@
 			<groupId>cn.alvasw.plugin</groupId>
 			<artifactId>page-helper-commons</artifactId>
 		</dependency>
+		<dependency>
+			<groupId>org.jetbrains</groupId>
+			<artifactId>annotations</artifactId>
+			<version>RELEASE</version>
+			<scope>compile</scope>
+		</dependency>
+
 	</dependencies>
 
 </project>

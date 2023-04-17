@@ -1,4 +1,4 @@
-package cn.alvasw.framework.commons.web.utils;
+package cn.alvasw.framework.commons.core.utils;
 
 import org.springframework.beans.BeansException;
 import org.springframework.context.ApplicationContext;
@@ -28,6 +28,7 @@ public class ApplicationUtil implements ApplicationContextAware {
 	}
 
 	@Override
+	@SuppressWarnings("all")
 	public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {
 		ApplicationUtil.applicationContext = applicationContext;
 	}
