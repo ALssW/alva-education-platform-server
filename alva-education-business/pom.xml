@@ -18,7 +18,6 @@
 	    <module>alva-education-business-auth</module>
 	    <module>alva-education-business-notify</module>
 	    <module>alva-education-business-activity</module>
-	    <module>alva-education-business-activity/alva-education-business-activity-core</module>
     </modules>
     <properties>
         <maven.compiler.source>8</maven.compiler.source>

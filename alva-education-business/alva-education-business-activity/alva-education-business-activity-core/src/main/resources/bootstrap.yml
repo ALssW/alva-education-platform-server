@@ -7,8 +7,8 @@ spring:
 
   profiles:
     active:
-     - @runtime@
-     - datasource
+      - @runtime@
+      - datasource
   cloud:
     nacos:
       server-addr: @nacosServer@

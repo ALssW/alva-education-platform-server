@@ -1,21 +1,24 @@
 package cn.alvasw.edu.data.activity.entity;
 
+import cn.alvasw.framework.commons.base.entity.BaseEntity;
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
+import lombok.Data;
+import lombok.EqualsAndHashCode;
+
 import java.io.Serializable;
 import java.math.BigDecimal;
-import java.util.Date;
-import lombok.Data;
 
 /**
  * 活动现金红包
  * @author ALsW
  */
+@EqualsAndHashCode(callSuper = true)
 @TableName(value ="activity_red_packet_cash")
 @Data
-public class ActivityRedPacketCash implements Serializable {
+public class ActivityRedPacketCash extends BaseEntity implements Serializable {
     /**
      * 主键
      */
@@ -37,25 +40,15 @@ public class ActivityRedPacketCash implements Serializable {
      */
     private BigDecimal cash;
 
-    /**
-     * 创建时间
-     */
-    private Date createTime;
+	/**
+	 * 红包数量
+	 */
+	private Integer nums;
 
-    /**
-     * 修改时间
-     */
-    private Date updateTime;
-
-    /**
-     * 状态
-     */
-    private Integer status;
-
-    /**
-     * 删除
-     */
-    private Integer delFlag;
+	/**
+	 * 红包类型
+	 */
+    private Integer type;
 
     @TableField(exist = false)
     private static final long serialVersionUID = 1L;

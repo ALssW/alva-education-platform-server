@@ -1,20 +1,23 @@
 package cn.alvasw.edu.data.activity.entity;
 
+import cn.alvasw.framework.commons.base.entity.BaseEntity;
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
-import java.io.Serializable;
-import java.util.Date;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
+
+import java.io.Serializable;
 
 /**
  * 活动优惠券红包
  * @author ALsW
  */
+@EqualsAndHashCode(callSuper = true)
 @TableName(value ="activity_red_packet_coupon")
 @Data
-public class ActivityRedPacketCoupon implements Serializable {
+public class ActivityRedPacketCoupon extends BaseEntity implements Serializable {
     /**
      * 主键
      */
@@ -40,26 +43,6 @@ public class ActivityRedPacketCoupon implements Serializable {
      * 优惠券数量(-1-无限制)
      */
     private Integer nums;
-
-    /**
-     * 创建时间
-     */
-    private Date createTime;
-
-    /**
-     * 修改时间
-     */
-    private Date updateTime;
-
-    /**
-     * 状态
-     */
-    private Integer status;
-
-    /**
-     * 删除
-     */
-    private Integer delFlag;
 
     @TableField(exist = false)
     private static final long serialVersionUID = 1L;

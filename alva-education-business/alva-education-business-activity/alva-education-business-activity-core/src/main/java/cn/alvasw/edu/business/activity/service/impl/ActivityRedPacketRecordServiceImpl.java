@@ -1,6 +1,6 @@
 package cn.alvasw.edu.business.activity.service.impl;
 
-import cn.alvasw.edu.business.activity.dao.ActivityRedPacketRecordMapper;
+import cn.alvasw.edu.business.activity.dao.ActivityRedPacketRecordDao;
 import cn.alvasw.edu.business.activity.service.ActivityRedPacketRecordService;
 import cn.alvasw.edu.data.activity.entity.ActivityRedPacketRecord;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
@@ -13,7 +13,7 @@ import org.springframework.stereotype.Service;
  * @date 2023-04-17 14:38:39
  */
 @Service
-public class ActivityRedPacketRecordServiceImpl extends ServiceImpl<ActivityRedPacketRecordMapper, ActivityRedPacketRecord>
+public class ActivityRedPacketRecordServiceImpl extends ServiceImpl<ActivityRedPacketRecordDao, ActivityRedPacketRecord>
 		implements ActivityRedPacketRecordService {
 
 }

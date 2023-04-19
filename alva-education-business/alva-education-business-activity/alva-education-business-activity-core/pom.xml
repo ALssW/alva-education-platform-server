@@ -33,10 +33,19 @@
 			<artifactId>alva-education-commons-mybatis</artifactId>
 			<exclusions>
 				<exclusion>
-					<artifactId>druid-spring-boot-starter</artifactId>
 					<groupId>com.alibaba</groupId>
+					<artifactId>druid-spring-boot-starter</artifactId>
+				</exclusion>
+				<exclusion>
+					<artifactId>spring-cloud-starter-alibaba-seata</artifactId>
+					<groupId>com.alibaba.cloud</groupId>
 				</exclusion>
 			</exclusions>
+		</dependency>
+
+		<dependency>
+			<groupId>cn.alvasw.edu</groupId>
+			<artifactId>alva-education-commons-cache</artifactId>
 		</dependency>
 
 		<dependency>
@@ -53,6 +62,7 @@
 			<groupId>cn.alvasw.edu</groupId>
 			<artifactId>alva-education-data-activity</artifactId>
 		</dependency>
+
 	</dependencies>
 
 </project>

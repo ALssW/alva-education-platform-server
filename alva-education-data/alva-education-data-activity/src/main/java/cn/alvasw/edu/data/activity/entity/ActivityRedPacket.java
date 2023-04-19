@@ -1,20 +1,23 @@
 package cn.alvasw.edu.data.activity.entity;
 
+import cn.alvasw.framework.commons.base.entity.BaseEntity;
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
-import java.io.Serializable;
-import java.util.Date;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
+
+import java.io.Serializable;
 
 /**
  * 活动红包
  * @author ALsW
  */
+@EqualsAndHashCode(callSuper = true)
 @TableName(value ="activity_red_packet")
 @Data
-public class ActivityRedPacket implements Serializable {
+public class ActivityRedPacket extends BaseEntity implements Serializable {
     /**
      * 主键
      */
@@ -35,26 +38,6 @@ public class ActivityRedPacket implements Serializable {
      * 概率
      */
     private Integer probability;
-
-    /**
-     * 创建时间
-     */
-    private Date createTime;
-
-    /**
-     * 修改时间
-     */
-    private Date updateTime;
-
-    /**
-     * 状态
-     */
-    private Integer status;
-
-    /**
-     * 删除
-     */
-    private Integer delFlag;
 
     @TableField(exist = false)
     private static final long serialVersionUID = 1L;

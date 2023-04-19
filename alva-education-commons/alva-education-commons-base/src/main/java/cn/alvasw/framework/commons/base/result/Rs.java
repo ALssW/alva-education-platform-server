@@ -69,12 +69,12 @@ public class Rs<T> extends PageResult implements Serializable {
 		return success ? Rs.ok(okMsg) : Rs.fail(failMsg);
 	}
 
-	public static <T> Rs<T> assertNull(T obj) {
-		return assertNull(obj, "查询成功", "查询失败");
+	public static <T> Rs<T> assertNull(T data) {
+		return assertNull(data, "查询成功", "查询失败");
 	}
 
-	public static <T> Rs<T> assertNull(T obj, String okMsg, String failMsg) {
-		return obj != null ? Rs.ok(okMsg, obj) : Rs.fail(RsCodes.NOT_FOUND, failMsg);
+	public static <T> Rs<T> assertNull(T data, String okMsg, String failMsg) {
+		return data != null ? Rs.ok(okMsg, data) : Rs.fail(RsCodes.NOT_FOUND, failMsg);
 	}
 
 	public static <T> Rs<List<T>> assertEmpty(List<T> coll) {

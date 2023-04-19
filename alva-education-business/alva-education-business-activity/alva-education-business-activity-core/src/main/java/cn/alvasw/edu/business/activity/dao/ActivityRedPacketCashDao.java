@@ -9,7 +9,7 @@ import com.baomidou.mybatisplus.core.mapper.BaseMapper;
  * @author ALsW
  * @date 2023-04-17 14:38:39
  */
-public interface ActivityRedPacketCashMapper extends BaseMapper<ActivityRedPacketCash> {
+public interface ActivityRedPacketCashDao extends BaseMapper<ActivityRedPacketCash> {
 
 }
 

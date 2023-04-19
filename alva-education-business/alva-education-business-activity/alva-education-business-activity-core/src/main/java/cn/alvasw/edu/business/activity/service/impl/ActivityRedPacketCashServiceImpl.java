@@ -1,6 +1,6 @@
 package cn.alvasw.edu.business.activity.service.impl;
 
-import cn.alvasw.edu.business.activity.dao.ActivityRedPacketCashMapper;
+import cn.alvasw.edu.business.activity.dao.ActivityRedPacketCashDao;
 import cn.alvasw.edu.business.activity.service.ActivityRedPacketCashService;
 import cn.alvasw.edu.data.activity.entity.ActivityRedPacketCash;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
@@ -13,7 +13,7 @@ import org.springframework.stereotype.Service;
  * @date 2023-04-17 14:38:39
  */
 @Service
-public class ActivityRedPacketCashServiceImpl extends ServiceImpl<ActivityRedPacketCashMapper, ActivityRedPacketCash>
+public class ActivityRedPacketCashServiceImpl extends ServiceImpl<ActivityRedPacketCashDao, ActivityRedPacketCash>
 		implements ActivityRedPacketCashService {
 
 }

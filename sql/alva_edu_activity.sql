@@ -47,6 +47,8 @@ create table `activity_red_packet_cash`
     red_packet_id bigint         not null comment '红包ID',
     activity_id   bigint         not null comment '活动ID',
     cash          decimal(10, 2) not null comment '金额',
+    nums          int            not null comment '红包数量',
+    type          tinyint        not null comment '红包类型',
     create_time   datetime       not null comment '创建时间',
     update_time   datetime       not null comment '修改时间',
     status        tinyint        not null comment '状态',
@@ -83,7 +85,7 @@ create table `coupon`
 
 # 活动红包领取记录表
 drop table if exists `activity_red_packet_record`;
-create table `activity_red_packet_acquire`
+create table `activity_red_packet_record`
 (
     id          bigint primary key auto_increment comment '主键',
     activity_id bigint       not null comment '活动ID',
@@ -94,7 +96,7 @@ create table `activity_red_packet_acquire`
     update_time datetime     not null comment '修改时间',
     status      tinyint      not null comment '状态',
     del_flag    tinyint      not null comment '删除'
-) comment '活动红包领取记';
+) comment '活动红包领取记录';
 
 # 优惠券用户关系表
 drop table if exists `coupon_user_relation`;

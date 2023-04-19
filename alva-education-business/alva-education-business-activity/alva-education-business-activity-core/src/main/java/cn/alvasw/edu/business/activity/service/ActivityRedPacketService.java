@@ -1,6 +1,7 @@
 package cn.alvasw.edu.business.activity.service;
 
 import cn.alvasw.edu.data.activity.entity.ActivityRedPacket;
+import cn.alvasw.edu.data.activity.vo.input.ActivityRedPacketContentVO;
 import com.baomidou.mybatisplus.extension.service.IService;
 
 /**
@@ -11,4 +12,5 @@ import com.baomidou.mybatisplus.extension.service.IService;
  */
 public interface ActivityRedPacketService extends IService<ActivityRedPacket> {
 
+	boolean saveContent(ActivityRedPacketContentVO activityRedPacketContentVO);
 }

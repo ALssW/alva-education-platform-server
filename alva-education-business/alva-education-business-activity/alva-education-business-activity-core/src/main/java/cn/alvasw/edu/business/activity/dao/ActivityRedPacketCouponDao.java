@@ -8,7 +8,7 @@ import com.baomidou.mybatisplus.core.mapper.BaseMapper;
  * @author ALsW
 * @date 2023-04-17 14:38:39
 */
-public interface ActivityRedPacketCouponMapper extends BaseMapper<ActivityRedPacketCoupon> {
+public interface ActivityRedPacketCouponDao extends BaseMapper<ActivityRedPacketCoupon> {
 
 }
 

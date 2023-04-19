@@ -28,6 +28,7 @@ import java.util.List;
 @Slf4j
 public class BaseWebConfiguration {
 
+	@SuppressWarnings("all")
 	public HttpMessageConverter configureMessageConverters() {
 		System.out.println("注册使用 Fastjson");
 		FastJsonHttpMessageConverter converter = new FastJsonHttpMessageConverter();

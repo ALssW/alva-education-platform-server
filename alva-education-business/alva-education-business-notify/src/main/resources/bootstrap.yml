@@ -3,14 +3,10 @@ server:
 
 spring:
   application:
-    name: server-course
+    name: server-notify
 
   profiles:
     active: @runtime@
   cloud:
     nacos:
       server-addr: @nacosServer@
-
-alvasw:
-  file:
-    path: D:\Other\Database\img
