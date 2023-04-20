@@ -16,8 +16,8 @@ public class ActivityRedPacketCashBO {
 
 	private Long       cashId;
 	private BigDecimal cash;
-	private Integer    nums;
-	private Integer    probability;
-	private Integer    type;
+	private Integer    cashNums;
+	private Integer    cashProbability;
+	private Integer    cashType;
 
 }

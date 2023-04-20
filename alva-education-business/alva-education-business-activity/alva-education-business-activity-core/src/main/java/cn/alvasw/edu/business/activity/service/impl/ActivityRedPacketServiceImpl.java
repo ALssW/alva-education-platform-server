@@ -4,6 +4,7 @@ import cn.alvasw.edu.business.activity.dao.ActivityRedPacketDao;
 import cn.alvasw.edu.business.activity.service.ActivityRedPacketCashService;
 import cn.alvasw.edu.business.activity.service.ActivityRedPacketCouponService;
 import cn.alvasw.edu.business.activity.service.ActivityRedPacketService;
+import cn.alvasw.edu.commons.cache.lock.RLock;
 import cn.alvasw.edu.data.activity.entity.ActivityRedPacket;
 import cn.alvasw.edu.data.activity.entity.ActivityRedPacketCash;
 import cn.alvasw.edu.data.activity.entity.ActivityRedPacketCoupon;
@@ -35,6 +36,7 @@ public class ActivityRedPacketServiceImpl extends ServiceImpl<ActivityRedPacketD
 
 	@Override
 	@Transactional(rollbackFor = Exception.class)
+	@RLock("#activityRedPacketContentVO.activityId + '' + #activityRedPacketContentVO.contentType")
 	public boolean saveContent(ActivityRedPacketContentVO activityRedPacketContentVO) {
 		Integer contentType = activityRedPacketContentVO.getContentType();
 
@@ -53,6 +55,8 @@ public class ActivityRedPacketServiceImpl extends ServiceImpl<ActivityRedPacketD
 			}
 			cash.setActivityId(activityRedPacketContentVO.getActivityId());
 			cash.setRedPacketId(redPacket.getId());
+			cash.setNums(activityRedPacketContentVO.getCashNums());
+			cash.setType(activityRedPacketContentVO.getCashType());
 			log.info("[activity content save] 新增活动现金红包内容 - {}", cash);
 			//保存
 			saveFlag = cashService.save(cash);
@@ -64,6 +68,7 @@ public class ActivityRedPacketServiceImpl extends ServiceImpl<ActivityRedPacketD
 			}
 			coupon.setActivityId(activityRedPacketContentVO.getActivityId());
 			coupon.setRedPacketId(redPacket.getId());
+			coupon.setNums(activityRedPacketContentVO.getCouponNums());
 			log.info("[activity content insert] 新增活动优惠券红包内容 - {}", coupon);
 			//保存
 			saveFlag = couponService.save(coupon);

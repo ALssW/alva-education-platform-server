@@ -4,7 +4,7 @@ import com.baomidou.mybatisplus.annotation.FieldFill;
 import com.baomidou.mybatisplus.annotation.TableField;
 import lombok.Data;
 
-import java.sql.Timestamp;
+import java.time.LocalDateTime;
 
 
 /**
@@ -16,12 +16,12 @@ import java.sql.Timestamp;
 public class BaseEntity {
 
 	@TableField(fill = FieldFill.INSERT)
-	private Timestamp createTime;
+	private LocalDateTime createTime;
 	@TableField(fill = FieldFill.INSERT_UPDATE)
-	private Timestamp updateTime;
+	private LocalDateTime updateTime;
 	@TableField(fill = FieldFill.INSERT)
-	private Integer   status;
+	private Integer       status;
 	@TableField(fill = FieldFill.INSERT)
-	private Integer   delFlag;
+	private Integer       delFlag;
 
 }

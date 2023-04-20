@@ -24,7 +24,6 @@ public class ActivityServiceImpl extends ServiceImpl<ActivityDao, Activity>
 				.set("update_time", new Date())
 				.eq("id", id)
 				.update();
-
 	}
 }
 

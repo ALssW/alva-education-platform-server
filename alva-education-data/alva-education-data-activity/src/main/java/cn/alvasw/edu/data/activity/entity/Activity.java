@@ -7,10 +7,14 @@ import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 
 import java.io.Serializable;
+import java.time.LocalDateTime;
 import java.util.Date;
 
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.fasterxml.jackson.databind.ser.std.ToStringSerializer;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
+import org.springframework.format.annotation.DateTimeFormat;
 
 /**
  * 活动
@@ -25,6 +29,7 @@ public class Activity extends BaseEntity implements Serializable {
 	 * 主键
 	 */
 	@TableId(type = IdType.AUTO)
+	@JsonSerialize(using = ToStringSerializer.class)
 	private Long id;
 
 	/**
@@ -55,12 +60,14 @@ public class Activity extends BaseEntity implements Serializable {
 	/**
 	 * 活动开始时间
 	 */
-	private Date beginTime;
+	@DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+	private LocalDateTime beginTime;
 
 	/**
 	 * 活动结束时间
 	 */
-	private Date endTime;
+	@DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+	private LocalDateTime endTime;
 
 	@TableField(exist = false)
 	private static final long serialVersionUID = 1L;

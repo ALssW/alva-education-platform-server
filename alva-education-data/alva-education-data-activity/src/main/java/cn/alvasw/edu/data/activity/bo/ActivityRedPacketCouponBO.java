@@ -12,7 +12,7 @@ public class ActivityRedPacketCouponBO {
 
 	private Long couponId;
 	private Long redPacketId;
-	private Integer nums;
-	private Integer probability;
+	private Integer couponNums;
+	private Integer couponProbability;
 
 }

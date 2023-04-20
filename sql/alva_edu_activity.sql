@@ -47,8 +47,8 @@ create table `activity_red_packet_cash`
     red_packet_id bigint         not null comment '红包ID',
     activity_id   bigint         not null comment '活动ID',
     cash          decimal(10, 2) not null comment '金额',
-    nums          int            not null comment '红包数量',
-    type          tinyint        not null comment '红包类型',
+    nums          int            not null comment "红包数量",
+    type          tinyint        not null comment "红包类型",
     create_time   datetime       not null comment '创建时间',
     update_time   datetime       not null comment '修改时间',
     status        tinyint        not null comment '状态',
@@ -84,8 +84,8 @@ create table `coupon`
 ) comment '优惠券';
 
 # 活动红包领取记录表
-drop table if exists `activity_red_packet_record`;
-create table `activity_red_packet_record`
+drop table if exists `activity_red_packet_record_0`;
+create table `activity_red_packet_record_0`
 (
     id          bigint primary key auto_increment comment '主键',
     activity_id bigint       not null comment '活动ID',
@@ -99,8 +99,8 @@ create table `activity_red_packet_record`
 ) comment '活动红包领取记录';
 
 # 优惠券用户关系表
-drop table if exists `coupon_user_relation`;
-create table `coupon_user_relation`
+drop table if exists `coupon_user_relation_0`;
+create table `coupon_user_relation_0`
 (
     id          bigint primary key auto_increment comment '主键',
     user_id     bigint   not null comment '用户ID',
@@ -115,8 +115,8 @@ create table `coupon_user_relation`
 ) comment '优惠券用户关系';
 
 # 用户流水表
-drop table if exists `user_money_detail`;
-create table `user_money_detail`
+drop table if exists `user_money_detail_0`;
+create table `user_money_detail_0`
 (
     id          bigint primary key auto_increment comment '主键',
     user_id     bigint         not null comment '用户ID',
@@ -129,3 +129,56 @@ create table `user_money_detail`
     status      tinyint        not null comment '状态',
     del_flag    tinyint        not null comment '删除'
 ) comment '用户流水';
+
+
+# 活动红包领取记录表
+drop table if exists `activity_red_packet_record_1`;
+create table `activity_red_packet_record_1`
+(
+    id          bigint primary key auto_increment comment '主键',
+    activity_id bigint       not null comment '活动ID',
+    user_id     bigint       not null comment '用户ID',
+    type        tinyint      not null comment '红包类型(0-现金 1-优惠券)',
+    info        varchar(100) not null comment '记录信息(现金-金额，优惠券-优惠券ID)',
+    create_time datetime     not null comment '创建时间',
+    update_time datetime     not null comment '修改时间',
+    status      tinyint      not null comment '状态',
+    del_flag    tinyint      not null comment '删除'
+) comment '活动红包领取记录';
+
+# 优惠券用户关系表
+drop table if exists `coupon_user_relation_1`;
+create table `coupon_user_relation_1`
+(
+    id          bigint primary key auto_increment comment '主键',
+    user_id     bigint   not null comment '用户ID',
+    coupon_id   bigint   not null comment '优惠券ID',
+    nums        int      not null comment '优惠券数量',
+    source      tinyint  not null comment '优惠券来源(0-活动 1-系统 2-兑换)',
+    business_id bigint comment '业务ID',
+    create_time datetime not null comment '创建时间',
+    update_time datetime not null comment '修改时间',
+    status      tinyint  not null comment '状态',
+    del_flag    tinyint  not null comment '删除'
+) comment '优惠券用户关系';
+
+# 用户流水表
+drop table if exists `user_money_detail_1`;
+create table `user_money_detail_1`
+(
+    id          bigint primary key auto_increment comment '主键',
+    user_id     bigint         not null comment '用户ID',
+    action      tinyint        not null comment '操作类型(0-+ 1--)',
+    detail      decimal(10, 2) not null comment '金额',
+    source      tinyint        not null comment '来源(0-活动红包)',
+    business_id bigint comment '业务ID',
+    create_time datetime       not null comment '创建时间',
+    update_time datetime       not null comment '修改时间',
+    status      tinyint        not null comment '状态',
+    del_flag    tinyint        not null comment '删除'
+) comment '用户流水';
+
+insert into coupon
+values (null, '满200减100', now(), now(), 0, 0),
+       (null, '满200减80', now(), now(), 0, 0),
+       (null, '满200减40', now(), now(), 0, 0);
