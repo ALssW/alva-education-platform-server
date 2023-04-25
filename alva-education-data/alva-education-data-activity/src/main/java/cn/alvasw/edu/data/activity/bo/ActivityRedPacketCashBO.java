@@ -14,10 +14,10 @@ import java.math.BigDecimal;
 @Data
 public class ActivityRedPacketCashBO {
 
-	private Long       cashId;
+	private Long       id;
 	private BigDecimal cash;
-	private Integer    cashNums;
-	private Integer    cashProbability;
-	private Integer    cashType;
+	private Integer    nums;
+	private Integer    probability;
+	private Integer    type;
 
 }

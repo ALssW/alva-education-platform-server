@@ -47,8 +47,8 @@ create table `activity_red_packet_cash`
     red_packet_id bigint         not null comment '红包ID',
     activity_id   bigint         not null comment '活动ID',
     cash          decimal(10, 2) not null comment '金额',
-    nums          int            not null comment "红包数量",
-    type          tinyint        not null comment "红包类型",
+    nums          int            not null comment '红包数量',
+    type          tinyint        not null comment '红包类型',
     create_time   datetime       not null comment '创建时间',
     update_time   datetime       not null comment '修改时间',
     status        tinyint        not null comment '状态',
@@ -179,6 +179,6 @@ create table `user_money_detail_1`
 ) comment '用户流水';
 
 insert into coupon
-values (null, '满200减100', now(), now(), 0, 0),
-       (null, '满200减80', now(), now(), 0, 0),
-       (null, '满200减40', now(), now(), 0, 0);
+values (null, '满200减100', 0, now(), now(), 0, 0),
+       (null, '满200减80', 0, now(), now(), 0, 0),
+       (null, '满200减40', 0, now(), now(), 0, 0);

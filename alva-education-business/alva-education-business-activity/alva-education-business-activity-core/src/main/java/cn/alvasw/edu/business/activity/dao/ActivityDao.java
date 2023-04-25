@@ -3,6 +3,7 @@ package cn.alvasw.edu.business.activity.dao;
 import cn.alvasw.edu.data.activity.bo.ActivityBO;
 import cn.alvasw.edu.data.activity.entity.Activity;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import org.apache.ibatis.annotations.Param;
 
 /**
  * 针对表【activity(活动)】的数据库操作Mapper
@@ -12,7 +13,7 @@ import com.baomidou.mybatisplus.core.mapper.BaseMapper;
  */
 public interface ActivityDao extends BaseMapper<Activity> {
 
-	ActivityBO queryInfoByActId(Long activityId);
+	ActivityBO queryInfoByActId(@Param("activityId") Long activityId);
 
 }
 

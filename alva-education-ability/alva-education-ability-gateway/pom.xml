@@ -57,7 +57,16 @@
 			<groupId>cn.alvasw.edu</groupId>
 			<artifactId>alva-education-commons-base</artifactId>
 		</dependency>
-
+		<dependency>
+			<groupId>cn.alvasw.edu</groupId>
+			<artifactId>alva-education-commons-cache</artifactId>
+			<exclusions>
+				<exclusion>
+					<artifactId>spring-boot-starter-web</artifactId>
+					<groupId>org.springframework.boot</groupId>
+				</exclusion>
+			</exclusions>
+		</dependency>
 		<dependency>
 			<groupId>cn.alvasw.edu</groupId>
 			<artifactId>alva-education-config</artifactId>

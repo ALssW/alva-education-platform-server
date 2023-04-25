@@ -1,5 +1,6 @@
 package cn.alvasw.edu.ability.gateway.application;
 
+import org.apache.kafka.clients.admin.NewTopic;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
@@ -23,7 +24,7 @@ public class GatewayApplication {
 	 * 配置跨域的过滤器
 	 */
 	@Bean
-	public CorsWebFilter corsWebFilter(){
+	public CorsWebFilter corsWebFilter() {
 		CorsConfiguration configuration = new CorsConfiguration();
 		configuration.addAllowedMethod("*");
 		configuration.addAllowedOrigin("*");
@@ -32,6 +33,11 @@ public class GatewayApplication {
 		UrlBasedCorsConfigurationSource corsConfigurationSource = new UrlBasedCorsConfigurationSource();
 		corsConfigurationSource.registerCorsConfiguration("/**", configuration);
 		return new CorsWebFilter(corsConfigurationSource);
+	}
+
+	@Bean
+	public NewTopic redPackTopic() {
+		return new NewTopic("activity-get-red", 10, (short) 1);
 	}
 
 }

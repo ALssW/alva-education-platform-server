@@ -47,17 +47,14 @@
 			<groupId>cn.alvasw.edu</groupId>
 			<artifactId>alva-education-commons-cache</artifactId>
 		</dependency>
-
 		<dependency>
 			<groupId>cn.alvasw.edu</groupId>
 			<artifactId>alva-education-commons-core</artifactId>
 		</dependency>
-
 		<dependency>
 			<groupId>cn.alvasw.edu</groupId>
 			<artifactId>alva-education-commons-web</artifactId>
 		</dependency>
-
 		<dependency>
 			<groupId>cn.alvasw.edu</groupId>
 			<artifactId>alva-education-data-activity</artifactId>

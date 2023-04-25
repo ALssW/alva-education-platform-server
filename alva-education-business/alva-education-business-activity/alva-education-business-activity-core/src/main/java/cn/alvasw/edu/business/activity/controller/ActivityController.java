@@ -55,4 +55,9 @@ public class ActivityController {
 		return Rs.assertNull(now);
 	}
 
+	@RequestMapping("/red-packet/get")
+	public Rs<String> getRedPacket(Long id){
+		return null;
+	}
+
 }

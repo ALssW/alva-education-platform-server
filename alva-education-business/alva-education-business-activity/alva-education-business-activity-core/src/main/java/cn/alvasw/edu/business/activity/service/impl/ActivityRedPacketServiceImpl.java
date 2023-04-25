@@ -40,13 +40,20 @@ public class ActivityRedPacketServiceImpl extends ServiceImpl<ActivityRedPacketD
 	public boolean saveContent(ActivityRedPacketContentVO activityRedPacketContentVO) {
 		Integer contentType = activityRedPacketContentVO.getContentType();
 
-		ActivityRedPacket redPacket = new ActivityRedPacket();
-		redPacket.setActivityId(activityRedPacketContentVO.getActivityId());
-		redPacket.setType(contentType);
-		redPacket.setProbability(activityRedPacketContentVO.getProbability());
 
-		boolean saveFlag;
-		saveFlag = this.save(redPacket);
+		ActivityRedPacket redPacket = this.query()
+				.eq("ac_id", activityRedPacketContentVO.getActivityId())
+				.eq("type", contentType).one();
+
+		boolean saveFlag = false;
+		if (redPacket == null) {
+			redPacket = new ActivityRedPacket();
+			redPacket.setActivityId(activityRedPacketContentVO.getActivityId());
+			redPacket.setType(contentType);
+			redPacket.setProbability(activityRedPacketContentVO.getProbability());
+			saveFlag = this.save(redPacket);
+		}
+
 		if (contentType == 0) {
 			//现金红包
 			ActivityRedPacketCash cash = BeanUtil.copyInstance(activityRedPacketContentVO, ActivityRedPacketCash.class);

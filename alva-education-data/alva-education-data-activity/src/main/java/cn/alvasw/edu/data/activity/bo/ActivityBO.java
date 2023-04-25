@@ -15,15 +15,15 @@ import java.util.List;
 @Data
 public class ActivityBO {
 
-	private Long    activityId;
+	private Long    id;
 	private String  title;
 	private String  url;
 	private Integer type;
 	private Date    beginTime;
 	private Date    endTime;
 
-	private ActivityRedPacketCashBO cashBo;
+	private ActivityRedPacketCashBO cashBO;
 
-	List<ActivityRedPacketCouponBO> couponBOList;
+	private List<ActivityRedPacketCouponBO> couponBOList;
 
 }

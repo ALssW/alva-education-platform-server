@@ -10,9 +10,9 @@ import lombok.Data;
 @Data
 public class ActivityRedPacketCouponBO {
 
-	private Long couponId;
-	private Long redPacketId;
-	private Integer couponNums;
-	private Integer couponProbability;
+	private Long    id;
+	private Long    couponId;
+	private Integer nums;
+	private Integer probability;
 
 }
